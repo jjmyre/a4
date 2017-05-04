@@ -1,0 +1,153 @@
+body {
+    font-family: 'Lato', 'sans-serif';
+    background: slategrey;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1200px;
+    min-width: 900px;
+    font-size: 1.75em;
+}
+
+h1,
+h3,
+p,
+a {
+    text-align: left;
+    color: black;
+}
+
+h2 {
+    text-align: center;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+#content {
+    background-color: #F8F8FF;
+    margin: 0 auto 2em auto;
+    width: 100%;
+    padding-bottom: 2em;
+    box-sizing: border-box;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 0;
+    z-index: 10000;
+    background: black;
+    width: 100%;
+}
+
+#banner {
+    background-color: black;
+    width: 100%;
+    margin: 0 auto;
+    padding: .5em 0;
+    color: white;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 2px black;
+    padding: .75em 0;
+    letter-spacing: .2em;
+    text-align: center;
+}
+
+.addBtn {
+    background-color: dimgrey;
+    display: block;
+    color: white; 
+    width: 100%;
+    text-align: center;
+    padding: .25em;
+    border-bottom: 2px solid black;
+    text-shadow: 1px 1px 1px black;
+    box-sizing: border-box;
+    
+}
+
+.addBtn:hover,
+.addBtn:active,
+.addBtn:focus {
+    color: white;
+    background-color: darkgrey;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px black;
+}
+
+.addBtn:active {
+    position: relative;
+    top: 1px;
+}
+
+.movieTitle {
+    text-align: left;
+    width: 40%;
+}
+
+.ved,
+.movieTitle {
+    color: slategrey;
+}
+
+.ved:hover,
+.ved:active,
+.ved:focus,
+a.movieTitle:hover,
+a.movieTitle:active,
+a.movieTitle:focus {
+    color: black;
+    text-decoration: none;
+}
+
+.actionDiv {
+    width: 60%;
+    float: left;
+    clear: right;
+}
+
+.movieListDiv {
+    margin-bottom: 2em;
+}
+
+.notSeen,
+.seen {
+    background-color: #DCDCDC;
+    width: 100%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: .75em 0;
+    margin: 0;
+    box-sizing: border-box;
+    letter-spacing: .2em;
+}
+
+.sortDiv {
+    width: 100%;
+    padding: .5em 0;
+    margin: 0;
+    text-align: center;
+}
+
+.sortDiv a {
+    display: inline-block;
+    color: grey;
+    width: 25%;
+    padding: .25em;
+    text-align: center;
+    margin: 0 4%;
+    font-weight: bold;
+}
+
+.sortDiv a:hover,
+.sortDiv a:active,
+.sortDiv a:focus {
+    color: black;
+    text-decoration: none;
+
+}
+
