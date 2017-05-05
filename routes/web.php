@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'MovieListController@index');
+Route::get('/movies/add', 'MovieListController@addMovieView');
 
 if(App::environment('local')) {
 	Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
@@ -19,15 +20,15 @@ if(App::environment('local')) {
 
 if(App::environment('local')) {
     Route::get('/drop', function() {
-        DB::statement('DROP database movies');
-        DB::statement('CREATE database movies');
-        return 'Dropped movies; created movies.';
+        DB::statement('DROP database watchlist');
+        DB::statement('CREATE database watchlist');
+        return 'Dropped watchlist; created watchlist.';
     });
 };
 
 
 # Route::get('/movies/{id}/view', 'MovieListController@view');
-# Route::get('/movies/add', 'MovieListController@addMovieView');
+
 # Route::post('movies/add', 'MovieListController@addMovie);
 # Route::get('/movies/{id}/edit', 'MovieListController@editMovieView');
 # Route::post('/movies/{id}/edit', 'MovieListController@editMovie');

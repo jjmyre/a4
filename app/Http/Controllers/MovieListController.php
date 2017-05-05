@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Movie;
+use App\Genre;
 use Session;
 
 class MovieListController extends Controller
 {
     public function index() {
     	$lists = 0;
-    	$type = "class='fa fa-home' aria-hidden='true'";
+    	$type = 0;
 
     	return view('index')->with([
             'lists' => $lists,
@@ -17,7 +19,11 @@ class MovieListController extends Controller
         ]);
     }
 
-    public function add(Request $request) {
+    public function addMovieView(Request $request) {
         return view('add');
 	}
+
+     public function deleteMovie(Request $request) {
+        return view('add');
+    }
 }

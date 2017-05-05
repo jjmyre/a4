@@ -3,17 +3,26 @@ body {
     background: slategrey;
     padding: 0;
     margin: 0 auto;
-    max-width: 1200px;
-    min-width: 900px;
+    max-width: 900px;
+    min-width: 700px;
     font-size: 1.75em;
 }
 
 h1,
 h3,
-p,
 a {
     text-align: left;
     color: black;
+}
+
+.red {
+    color: red;
+}
+
+.movieList p {
+    text-align: left;
+    font-size: 1.5em;
+    margin-bottom: 1em;
 }
 
 h2 {
@@ -28,7 +37,7 @@ h2 {
     background-color: #F8F8FF;
     margin: 0 auto 2em auto;
     width: 100%;
-    padding-bottom: 2em;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -61,13 +70,29 @@ header {
     background-color: dimgrey;
     display: block;
     color: white; 
-    width: 100%;
+    width: 50%;
     text-align: center;
     padding: .25em;
     border-bottom: 2px solid black;
     text-shadow: 1px 1px 1px black;
     box-sizing: border-box;
-    
+    float: left;
+    clear: left;
+    height: 2em;
+}
+
+#sortForm {
+    background-color: dimgrey;
+    float: left;
+    clear: right;
+    display: block;
+    height: 2em; 
+    width: 50%;
+    text-align: center;
+    padding: .25em;
+    border-bottom: 2px solid black;
+    text-shadow: 1px 1px 1px black;
+    box-sizing: border-box;
 }
 
 .addBtn:hover,
@@ -77,6 +102,19 @@ header {
     background-color: darkgrey;
     text-decoration: none;
     text-shadow: 1px 1px 1px black;
+}
+
+#sortSelect option {
+    color: black;
+}
+
+#sortSelect option:hover {
+    background-color: black;
+    color: white;
+}
+
+#sortSelect {
+    color: black;
 }
 
 .addBtn:active {
@@ -110,8 +148,9 @@ a.movieTitle:focus {
     clear: right;
 }
 
-.movieListDiv {
-    margin-bottom: 2em;
+.movieList {
+    padding: 1em 0 2em 0;
+    margin: 0 0 0 5em;
 }
 
 .notSeen,
@@ -123,7 +162,7 @@ a.movieTitle:focus {
     padding: .75em 0;
     margin: 0;
     box-sizing: border-box;
-    letter-spacing: .2em;
+    letter-spacing: .1em;
 }
 
 .sortDiv {
@@ -148,6 +187,7 @@ a.movieTitle:focus {
 .sortDiv a:focus {
     color: black;
     text-decoration: none;
-
 }
+
+
 

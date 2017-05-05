@@ -1,87 +1,28 @@
 $(document).ready(function(){
 
-    // Hide the info and display boxes on document ready
+    // Hide the inputs for display boxes on document ready
 	
-    $('.infoBox').hide();
+    $('#movieRating').hide();
 	
-    $('.displayBox').hide();
+    $('#moviePriority').hide();
 
-    // Displays amount inputs, if check, after validation fails
+    // Displays priority or rating inputs, if checked, after validation fails
 
-    if($('.loanYes').is(':checked')) { $('#loanBox').show(); }
+    if($('#watched_yes').is(':checked')) { $('#movieRating').show(); }
 
-    if($('.tuitionYes').is(':checked')) { $('#tuitionBox').show(); }
+    if($('#watched_no').is(':checked')) { $('#moviePriority').show(); }
 
-    if($('.otherYes').is(':checked')) { $('#otherCreditBox').show(); }
+    // Event handler to show or hide prioirity/rating inputs
 
-    if($('.childYes').is(':checked')) { $('#childCreditBox').show(); }
-
-    // Event handlers to show or hide Infoxboxes when icon is clicked
-    
-	$('#statusInfoButton').click(function() {
-		$('#statusInfoBox').toggle(200);
-	});
-
-	$('#exemptionsInfoButton').click(function() {
-		$('#exemptionsInfoBox').toggle(200);
-	});
-
-    $('#adjustInfoButton').click(function() {
-        $('#adjustInfoBox').toggle(200);
-    });
-
-	$('#incomeInfoButton').click(function() {
-		$('#incomeInfoBox').toggle(200);
-	});
-
-	$('#creditsInfoButton').click(function() {
-		$('#creditsInfoBox').toggle(200);
-	});
-
-	$('#studentInfoButton').click(function() {
-		$('#studentInfoBox').toggle(200);
-	});
-
-	$('#healthInfoButton').click(function() {
-		$('#healthInfoBox').toggle(200);
-	});
-
-    // Event handlers to show or hide amount inputs
-
-  	$("input[name='childCredit']").click(function() {
+  	$("input[name='watched']").click(function() {
     	if ($(this).attr('value') =='no') {
-        	$('#childCreditBox').hide();
+        	$('#moviePriority').show();
+            $('#movieRating').hide();
     	} 
     	else if ($(this).attr('value') == 'yes') {
-    		$('#childCreditBox').show();
+            $('#movieRating').show();
+            $('#moviePriority').hide();
     	}
     });
 
-    $("input[name='otherCredit']").click(function() {
-    	if ($(this).attr('value') =='no') {
-        	$('#otherCreditBox').hide();
-    	} 
-    	else if ($(this).attr('value') == 'yes') {
-    		$('#otherCreditBox').show();
-    	}
-    });
-
-     $("input[name='tuition']").click(function() {
-    	if ($(this).attr('value') =='no') {
-        	$('#tuitionBox').hide();
-    	} 
-    	else if ($(this).attr('value') == 'yes') {
-    		$('#tuitionBox').show();
-    	}
-    });
-
-    $("input[name='loanInterest']").click(function() {
-    	if ($(this).attr('value') =='no') {
-        	$('#loanBox').hide();
-    	} 
-    	else if ($(this).attr('value') == 'yes') {
-    		$('#loanBox').show();
-    	}
-    });
- 
 });

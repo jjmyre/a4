@@ -9,24 +9,28 @@
         <div id='content'>
 
             <a class='addBtn' href='lists/create'><i class="fa fa-plus" aria-hidden="true"></i> ADD MOVIE</a>
-
-
-            <h2 class="notSeen">YOU WANT TO SEE</h2>
             
-            <div class="sortDiv">
-                <a href="movies/sort/title">SORT BY TITLE</a>
+            <form method="get" action="/sort" id="sortForm"> 
+                <select name="sort" id="sortSelect" required>
+                    <option disabled selected>SORT BY</option>
+                    <option value="title" >Title</option>
+                    <option value="genre">Genre</option>
+                    <option value="rating">Priority/Rating</option>
+                    <option value="star">Star</option>
+                    <option value="director">Director</option>
+                    <option value="writer">Writer</option>
+                    <option value="year">Release Year</option>
+                </select>
 
-                <a href="movies/sort/genre">SORT BY GENRE</a>
-
-                <a href="movies/sort/title">SORT BY PRIORITY</a>
-
-            </div>
-
+                <input type="submit" value="GO" class="sortBtn">
+            </form>
+<option disabled selected value>Select Tax Year</option>
             <section>
-                <p>There are no movies in your list yet.</p>    
-
-                <div class='movieListDiv'>
-                    <h3 class='movieTitle'><a href='/movies/id/view'>Movie Title</a></h3>
+                <h2 class="notSeen">Movies You Want to Watch</h2>
+            
+                <div class='movieList'>
+                    <p>There are no movies in your list yet.</p>  
+                    <h3 class='movieTitle'><a href='/movies/id/view'>Movie Title</a></h3>  
                     <div class="actionDiv">
                         <a class="ved" href="/movies/id/view"><i class='fa fa-eye'></i></a>
 
@@ -34,33 +38,22 @@
                     
                         <a class='ved' href='/movies/id/delete'><i class='fa fa-trash'></i></a>
                     </div>
+                </div>   
+
+            </section>
+
+            <section>
+                <h2 class="seen">Movies You Have Watched</h2>
+                <div class='movieList'>    
+                    <p>You haven't seen any movies in your list yet.</p>
+                    <h3 class='movieTitle'><a href='/movies/id/view'>Movie Title</a></h3>
+                    <div class="actionDiv">
+                        <a class="ved" href="/movies/id/view"><i class='fa fa-eye'></i></a>
+                        <a class='ved' href='/movies/id/edit'><i class='fa fa-pencil'></i></a>
+                        <a class='ved' href='/movies/id/delete'><i class='fa fa-trash'></i></a>
+                    </div>
                 </div>
-                
-                <div id="movieRating">
-                    <p>Now that you've seen it, how do you rate this movie?</p>
-                    <label><input type="radio" class="movieRating" name="movieRating" value="1">1</label>
-                    <label><input type="radio" class="movieRating" name="movieRating" value="2">2</label> 
-                    <label><input type="radio" class="movieRating" name="movieRating" value="3">3</label> 
-                    <label><input type="radio" class="movieRating" name="movieRating" value="4">4</label> 
-                    <label><input type="radio" class="movieRating" name="movieRating" value="5">5</label>      
-                </div>     
-
-            </section>    
-
-            <h2 class="seen">YOU HAVE SEEN</h2>
-            
-            <div class="sortDiv">
-                <a href="movies/sort/title">SORT BY TITLE</a>
-
-                <a href="movies/sort/genre">SORT BY GENRE</a>
-
-                <a href="movies/sort/rating">SORT BY RATING</a>
-            </div>
-
-            <p>You haven't seen any movies in your list yet.</p>  
-
-
-
+            </section>
         </div>
     </div>
 
