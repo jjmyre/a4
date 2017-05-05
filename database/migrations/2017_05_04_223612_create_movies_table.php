@@ -19,7 +19,6 @@ class CreateMoviesTable extends Migration
             $table->string('title');
             $table->integer('released')->nullable();
             $table->string('director')->nullable();
-            $table->string('writer')->nullable();
             $table->string('star')->nullable();
             $table->boolean('watched');
             $table->integer('priority')->nullable();
