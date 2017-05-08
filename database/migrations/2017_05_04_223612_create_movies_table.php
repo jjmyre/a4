@@ -17,11 +17,10 @@ class CreateMoviesTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('title');
-            $table->integer('released')->nullable();
             $table->string('director')->nullable();
-            $table->string('star')->nullable();
+            $table->string('cast')->nullable();
+            $table->integer('runtime')->nullable();
             $table->boolean('watched');
-            $table->integer('priority')->nullable();
             $table->integer('rating')->nullable();
         });
     }

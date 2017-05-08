@@ -16,180 +16,80 @@ class MoviesTableSeeder extends Seeder
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'title' => 'Star Wars: Episode IV - A New Hope',
-            'released' => 1977,
             'director' => 'George Lucas',
-            'star' => 'Mark Hamill',
-            'watched' => 1,
-            'priority' => 5,
-            'rating' => 5,
+            'cast' => 'Mark Hamill',
+            'watched' => 0,
+            'rating' => null,
         ]);
 
         Movie::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'title' => 'Jaws',
-            'released' => 1975,
             'director' => 'Steven Spielberg',
-            'star' => 'Richard Dreyfuss',
-            'watched' => 1,
-            'priority' => ,
-            'rating' => 5,
+            'cast' => 'Richard Dreyfuss',
+            'watched' => 0,
+            'rating' => null,
         ]);
 
         Movie::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'title' => 'Guardians of the Galaxy',
-            'released' => 2014,
             'director' => 'James Gunn',
-            'star' => 'Chris Pratt',
+            'cast' => 'Chris Pratt',
             'watched' => 0,
-            'priority' => 5,
-            'rating' => ,
+            'rating' => null,
         ]);
 
         Movie::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'title' => "Schindler's List",
-            'released' => 1993,
             'director' => 'Steven Spielberg',
-            'star' => 'Liam Niesen',
+            'cast' => 'Liam Niesen',
             'watched' => 0,
-            'priority' => 5,
-            'rating' => ,
+            'rating' => null,
         ]);
 
         Movie::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'title' => '',
-            'released' => ,
-            'director' => '',
-            'star' => '',
-            'watched' => ,
-            'priority' => ,
-            'rating' => ,
+            'title' => 'Oldboy',
+            'director' => 'Chanwook Park',
+            'cast' => 'Min-sik Choi',
+            'watched' => 0,
+            'rating' => null,
         ]);
 
         Movie::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'title' => '',
-            'released' => ,
-            'director' => '',
-            'star' => '',
-            'watched' => ,
-            'priority' => ,
-            'rating' => ,
+            'title' => 'The Revenant',
+            'director' => 'Alejandro Inarritu',
+            'cast' => 'Leonardo Dicaprio',
+            'watched' => 1,
+            'rating' => 3,
         ]);
 
         Movie::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'title' => '',
-            'released' => ,
-            'director' => '',
-            'star' => '',
-            'watched' => ,
-            'priority' => ,
-            'rating' => ,
+            'title' => 'The Godfather',
+            'director' => 'Francis Coppola',
+            'cast' => 'Marlon Brando',
+            'watched' => 1,
+            'rating' => 5,
         ]);
 
         Movie::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'title' => '',
-            'released' => ,
-            'director' => '',
-            'star' => '',
-            'watched' => ,
-            'priority' => ,
-            'rating' => ,
-        ]);
-
-        Movie::insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'title' => '',
-            'released' => ,
-            'director' => '',
-            'star' => '',
-            'watched' => ,
-            'priority' => ,
-            'rating' => ,
-        ]);
-
-        Movie::insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'title' => '',
-            'released' => ,
-            'director' => '',
-            'star' => '',
-            'watched' => ,
-            'priority' => ,
-            'rating' => ,
-        ]);
-
-        Movie::insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'title' => '',
-            'released' => ,
-            'director' => '',
-            'star' => '',
-            'watched' => ,
-            'priority' => ,
-            'rating' => ,
-        ]);
-
-        Movie::insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'title' => '',
-            'released' => ,
-            'director' => '',
-            'star' => '',
-            'watched' => ,
-            'priority' => ,
-            'rating' => ,
-        ]);
-
-        Movie::insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'title' => '',
-            'released' => ,
-            'director' => '',
-            'star' => '',
-            'watched' => ,
-            'priority' => ,
-            'rating' => ,
-        ]);
-
-        Movie::insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'title' => '',
-            'released' => ,
-            'director' => '',
-            'star' => '',
-            'watched' => ,
-            'priority' => ,
-            'rating' => ,
-        ]);
-
-        Movie::insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'title' => '',
-            'released' => ,
-            'director' => '',
-            'star' => '',
-            'watched' => ,
-            'priority' => ,
-            'rating' => ,
+            'title' => 'The Wolf of Wall Street',
+            'director' => 'Martin Scorsese',
+            'cast' => 'Leonardo Dicaprio',
+            'watched' => 1,
+            'rating' => 4,
         ]);
     }
 }

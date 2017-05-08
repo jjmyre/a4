@@ -21,7 +21,9 @@ a {
 
 .movieList p {
     text-align: left;
-    font-size: 1.5em;
+    font-size: 1em;
+    margin: 0;
+    padding: .2em 0;
 }
 
 h2 {
@@ -69,26 +71,24 @@ header {
 
 .addBtn {
     background-color: dimgrey;
-    display: inline-block;
+    display: block;
     color: white; 
-    width: 50%;
+    width: 100%;
     text-align: center;
     padding: .25em;
-    border-bottom: 2px solid black;
+    border: 1px solid black;
     text-shadow: 1px 1px 1px black;
     box-sizing: border-box;
+    box-shadow: none;
     height: 2em;
 }
 
 #sortForm {
-    background-color: dimgrey;
-    display: inline-block;
-    height: 2em; 
-    width: 50%;
-    float: right;
+    background: transparent;
+    display: block;
+    width: 100%;
     text-align: center;
     padding: .25em;
-    border-bottom: 2px solid black;
     text-shadow: 1px 1px 1px black;
     box-sizing: border-box;
 }
@@ -97,6 +97,7 @@ header {
     color: white;
     text-shadow: 1px 1px 1px black;
     font-weight: normal;
+    display: inline-block;
 }
 
 .addBtn:hover,
@@ -106,31 +107,39 @@ header {
     background-color: darkgrey;
     text-decoration: none;
     text-shadow: 1px 1px 1px black;
+    font-weight:bold;
+    border: 1px solid black;
+    outline: none;
 }
 
 .sortBtn {
     background-color: black;
     border-radius: 10px;
-    border: none;
+    padding: .2em .3em;
+    border: 1px solid black;
     color: white;
     font-size: .9em;
 }
 
 .sortBtn:hover {
-    background-color: darkgrey;
-    text-shadow: 1px 1px 1px black; 
+    background-color: dimgrey;
+    text-shadow: 1px 1px 1px black;
+    border: 1px solid black; 
 }
 
-#sortSelect option {
+#sortSelect option, 
+#showSelect option {
     color: black;
 }
 
-#sortSelect option:hover {
+#sortSelect option:hover,
+#showSelect option:hover {
     background-color: black;
     color: white;
 }
 
-#sortSelect {
+#sortSelect, 
+#showSelect {
     color: black;
     border-radius: 4px;
     box-shadow: 1px 1px 1px black;
@@ -138,8 +147,7 @@ header {
 
 .addBtn:active,
 .sortBtn:active {
-    position: relative;
-    top: 1px;
+    font-weight:bold;
 }
 
 .movieTitle {
@@ -168,9 +176,8 @@ header {
 }
 
 .actionDiv {
-    width: 60%;
-    float: left;
-    clear: right;
+    width: 100%;
+    display: inline-block;
 }
 
 .actionDiv a {
@@ -179,27 +186,42 @@ header {
 }
 
 .movieList {
-    padding: 2em 0 3em 6em;
-    margin: 0;
+    padding: 2em 0 2em 6em;
     border-bottom: 1px solid black;
 }
 
 .movieList h3 {
-    margin: 0;
+    margin: 0 0 .25em 0;
 }
 
-.notSeen,
-.seen {
+.movieList ul li {
+    list-style: none;
+}
+
+
+
+.listTitle {
     background-color: #DCDCDC;
     width: 100%;
     border-top: 1px solid black;
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid black;
     padding: .75em 0;
     margin: 0;
     word-spacing: .25em;
     font-weight: normal;
 }
 
+#top_bar {
+    background-color: DarkSlateGrey;
+    padding: .25em 0;
+    margin: 0 auto;
+    border-bottom: 2px solid black;
+}
+
+#top_bar select {
+    margin-right: .75em;
+    margin-left: .2em;
+}
 
 
 

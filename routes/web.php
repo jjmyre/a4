@@ -11,8 +11,26 @@
 |
 */
 
-Route::get('/', 'MovieListController@index');
-Route::get('/movies/add', 'MovieListController@addMovieView');
+# Home
+Route::get('/', 'HomeController');
+
+# Show sorted movies on list
+Route::get('/list', 'MovieListController@list');
+
+# Add Movie to List
+Route::get('/add', 'MovieListController@add');
+Route::post('/add', 'MovieListController@add');
+
+# Edit/update Movie from list
+Route::get('/update/{id}', 'MovieListController@update');
+Route::post('/update/{id}', 'MovieListController@update');
+
+# Delete Movie from List
+Route::get('/delete{id}', 'MovieListController@delete');
+Route::post('/delete{id}', 'MovieListController@delete');
+
+
+
 
 if(App::environment('local')) {
 	Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
@@ -25,11 +43,3 @@ if(App::environment('local')) {
         return 'Dropped watchlist; created watchlist.';
     });
 };
-
-
-# Route::get('/movies/{id}/view', 'MovieListController@view');
-
-# Route::post('movies/add', 'MovieListController@addMovie);
-# Route::get('/movies/{id}/edit', 'MovieListController@editMovieView');
-# Route::post('/movies/{id}/edit', 'MovieListController@editMovie');
-# Route::post('/movies/{id}/delete', 'MovieListController@delete');

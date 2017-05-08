@@ -16,13 +16,26 @@
             <input type='number' placeholder="YYYY" name='title' id='title' value=''><br>
 
             <label for='directed'>Directed By</label>
-            <input type='text' name='directed' id='directed' value=''><br>
+            <input type='text' name='directed' id='directed' placeholder="optional" value=''><br>
 
-            <label for='written'>Written By</label>
-            <input type='text' name='title' id='written' value=''><br>
+            <label for='cast'>Starring</label>
+            <input type='text' name='cast' id='starring' placeholder="First Name" value="">
+           
 
-            <label for='starring'>Starring</label>
-            <input type='text' name='starring' id='starring' value=''><br>
+
+<!--Change the names of your inputs:
+
+<input name="xyz[]" value="Lorem" />
+<input name="xyz[]" value="ipsum"  />
+<input name="xyz[]" value="dolor" />
+<input name="xyz[]" value="sit" />
+<input name="xyz[]" value="amet" />
+Then:
+
+$_POST['xyz'][0] == 'Lorem'
+$_POST['xyz'][4] == 'amet'  -->
+
+
 
             <p>Check all genres that apply</p>
       {{--      <ul id='genres'>
