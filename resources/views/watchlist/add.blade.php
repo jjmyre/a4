@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Add Movie
+@endsection
+
 @section('content')
  <div class="container-fluid">
     <div id='content'>
@@ -13,8 +17,6 @@
                 </div>
             @endif
 
-            
-
         <form method='POST' action='/add'>
             {{ csrf_field() }}
 
@@ -24,9 +26,9 @@
             <input type='text' name='title' id='title' value="{{ old('title'), ''}}"
                 required><br>
 
-            <label for='release_year'>Year of Release:</label>
+            <label for='release_year'>Year of Release</label>
             <input type='text' placeholder="YYYY" maxlength='4' name='release_year' 
-                id='release_year' value="{{old('release_year'), ''}}"</input><br>
+                id='release_year' value="{{old('release_year'), ''}}"><br>
 
             <label for='runtime'>Runtime</label>
             <input type='text' name='runtime' id='runtime' placeholder="minutes" 

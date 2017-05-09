@@ -9,7 +9,7 @@
         <div id='content'>
             <div id='top_bar'>
             <form method="get" action="/list" name="sortForm" id="sortForm"> 
-                <label for="listType">SHOW</label>
+                <label>SHOW</label>
                 <select name="listType" id="showSelect">
                     <option value='unwatched' {{ $listType == "unwatched" ?
                         'SELECTED' : '' }}>UNWATCHED</option>
@@ -19,7 +19,7 @@
                         '' }}>ALL</option>
                 </select>
 
-                <label for="sortBy">SORT BY</label>
+                <label>SORT BY</label>
                 <select name="sortBy" id="sortSelect">
                     <option value="title" {{ $sortBy == "title" ? 'SELECTED' :
                         '' }}> TITLE</option>

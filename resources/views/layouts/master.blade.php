@@ -10,7 +10,6 @@
     <link href="{{ asset('css/movies.css') }}" type='text/css' rel='stylesheet' />
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js' type='text/javascript' ></script>
     <script src="{{ asset('js/movies.js') }}" type='text/javascript'></script>
-	</script>
 
 	<title>
         @yield('title')
