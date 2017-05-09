@@ -12,10 +12,10 @@ class GenresTableSeeder extends Seeder
      */
     public function run()
     {
-        $genres = [ 'Action', 'Adventure', 'Animation', 'Avant-garde', 'Biopic', 'Classic',
-            'Comedy', 'Crime', 'Documentary', 'Drama', 'Epic', 'Family', 'Fantasy', 'Foreign',
-            'Historical', 'Horror', 'Melodrama', 'Musical', 'Mystery', 'Political', 'Romance',
-            'Sci-fi', 'Sport','Thriller', 'War', 'Western' ];
+        $genres = [ 'Action','Adventure','Animation','Avant-garde','Biopic','Classic',
+            'Comedy','Crime','Documentary','Drama','Epic','Family','Fantasy','Foreign',
+            'Historical','Horror','Melodrama','Monster','Musical','Mystery','Political',
+            'Romance','Sci-fi','Sport','Thriller','War','Western' ];
 	
 	    foreach($genres as $genreName) {
             $genre = new Genre();

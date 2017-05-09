@@ -21,13 +21,13 @@ Route::get('/list', 'MovieListController@list');
 Route::get('/add', 'MovieListController@addMovie');
 Route::post('/add', 'MovieListController@storeMovie');
 
-# Edit/update Movie from list
-Route::get('/update/{id}', 'MovieListController@update');
-Route::post('/update/{id}', 'MovieListController@update');
+# Edit Movie from list
+Route::get('/edit/{id}', 'MovieListController@editMovie');
+Route::post('/edit/{id}', 'MovieListController@saveMovie');
 
 # Delete Movie from List
-Route::get('/delete{id}', 'MovieListController@delete');
-Route::post('/delete{id}', 'MovieListController@delete');
+Route::get('/delete/{id}', 'MovieListController@deleteConfirm');
+Route::post('/delete', 'MovieListController@deleteMovie');
 
 
 

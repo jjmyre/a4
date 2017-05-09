@@ -10,14 +10,25 @@ use Session;
 class HomeController extends Controller
 {
     function __invoke(){
-        $listType = 'unwatched';
-        $sortBy = 'title';
-        $movies = Movie::where('watched', '=', false)->orderBy('title', 'asc')->get();
+        $listType = 'default';
+        $sortBy = 'default';
 
-        return redirect('/list')->with([
+        $movies = Movie::with('genres')->orderBy('title', 'asc')->get();
+
+        $genreOptions = [];
+
+        foreach($movies as $movie) {
+            foreach($movie->genres as $genre) {
+                ($genreOptions[$genre['id']] = $genre->name);
+            }
+        }
+
+        ksort($genreOptions);
+
+        return view('watchlist.list')->with([
             'listType' => $listType,
             'sortBy' => $sortBy,
-            'movies' => $movies,
+            'genreOptions' => $genreOptions,
         ]);     
     }
 }

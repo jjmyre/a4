@@ -7,7 +7,7 @@
 @else
     @foreach($movies as $movie)
         <section class='movieList'>
-            <h3>{{$movie->title}}</h3>
+            <h3>{{$movie->genre}}</h3>
     {{--    <p>Genres:
                 @foreach($movie->genres as $genre) 
                     <a href="">{{$genre->name.' '}}</a>

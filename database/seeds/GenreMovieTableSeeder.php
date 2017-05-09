@@ -14,16 +14,16 @@ class GenreMovieTableSeeder extends Seeder
     public function run()
     {
         $movies =[
-            'Star Wars: Episode IV - A New Hope' => ['Sci-fi','Classic','Adventure'],
-            'The Revenant' => ['Historical','Western','Adventure'],
+            'Star Wars: Episode IV - A New Hope' => ['Adventure','Classic','Sci-fi'],
+            'The Revenant' => ['Adventure','Historical','Western'],
             'The Godfather' => ['Classic','Crime','Drama'],
-            'Oldboy' => ['Foreign','Action','Thriller'],
-            'The Wolf of Wall Street' => ['Crime', 'Drama', 'Biopic'],
-            'Alien' => ['Sci-fi','Classic','Horror'],
-            'No Country for Old Men' => ['Crime','Thriller','Action'],
-            'Prometheus' => ['Sci-fi','Horror'],
-            'Guardians of the Galaxy' => ['Sci-fi', 'Adventure', 'Comedy'],
-            'Jaws' => ['Horror','Classic']
+            'Oldboy' => ['Action','Foreign','Thriller'],
+            'The Wolf of Wall Street' => ['Biopic','Crime','Drama'],
+            'Alien' => ['Classic','Horror','Sci-fi'],
+            'No Country for Old Men' => ['Action','Crime','Thriller'],
+            'Prometheus' => ['Horror','Sci-fi'],
+            'Guardians of the Galaxy' => ['Adventure','Comedy','Sci-fi'],
+            'Jaws' => ['Classic','Horror','Monster']
         ];
 
         foreach($movies as $title => $genres) {

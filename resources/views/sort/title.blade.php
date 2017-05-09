@@ -7,25 +7,25 @@
 @else
     @foreach($movies as $movie)
         <section class='movieList'>
-            <h3>{{$movie->title}}</h3>
+            <h3>{{$movie->title}} &nbsp; 
+                <a href="{{$movie->imdb_link}}" target="_blank"><i class="fa fa-imdb yellow" aria-hidden="true"></i></a>
+            </h3>
             <p>Genres:
                 @foreach($movie->genres as $genre) 
-                    <a href="">{{$genre->name.' '}}</a>
+                    <a class="genre" href="">{{$genre->name.' '}}</a>
                 @endforeach
             </p>  
 
             @if($movie->release_year)
-                <p>Released: {{$movie->release_year}}</p>
+                <p>Release Year: {{$movie->release_year}}</p>
             @endif
 
             @if($movie->runtime)
                 <p>Runtime: {{$movie->runtime}} minutes</p>
             @endif
 
-            <a href="{{$movie->imdb_link}}"><i class="fa fa-imdb yellow fa-2x" aria-hidden="true"></i></a>
-
             <div class="actionDiv">
-                <a class='ved' href='/update/{{$movie->id}}'><i class='fa fa-pencil'></i> UPDATE</a>
+                <a class='ved' href='/edit/{{$movie->id}}'><i class='fa fa-pencil'></i> EDIT</a>
 
                 <a class='ved' href='/delete/{{$movie->id}}'><i class='fa fa-trash'></i> DELETE</a>
             </div>

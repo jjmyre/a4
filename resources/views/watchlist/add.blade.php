@@ -7,15 +7,10 @@
 @section('content')
  <div class="container-fluid">
     <div id='content'>
-              @if(count($errors) > 0)
-                <div class='alert alert-danger error'>
-                    <ul>
-                        @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+        <div id="top_bar">
+            <h2>ADD A NEW MOVIE</h2>
+        </div>
+        @include('errors')
 
         <form method='POST' action='/add' name="addMovie" id="addForm">
             {{ csrf_field() }}
@@ -42,7 +37,7 @@
                 
                 @foreach($genreCheckboxes as $id => $name)
                     <input type='checkbox' value='{{ $id }}' class="genreCheckbox" 
-                        name='genres' id="genre_{{ $id }}" {{ old('genres') == $id ? 'CHECKED' : '' }} >
+                        name='genres[]' id="genre_{{ $id }}" {{ old('genres') == $id ? 'CHECKED' : '' }} >
                     <label for='genre_{{ $id }}'>{{ $name }}</label>
                 @endforeach
             <br>
@@ -59,8 +54,8 @@
                 <label><input type="radio" class="movieRating" name="rating" value="5">5</label>      
             </div>  
         
-            <input class='btn' type='submit' value='ADD MOVIE'>
-            <a class='btn' href="/">DONE</a>
+            <input class='formBtn' type='submit' value='ADD MOVIE'>
+            <a class='formBtn' href="/">DONE</a>
 
         </form>
     </div>

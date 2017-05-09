@@ -245,6 +245,8 @@ header {
 #top_bar {
     background-color: DarkSlateGrey;
     padding: .25em 0;
+    color: white;
+    text-shadow: 1px 1px 1px: black;
     margin: 0 auto;
     border-bottom: 2px solid black;
 }
@@ -252,6 +254,40 @@ header {
 #top_bar select {
     margin-right: .75em;
     margin-left: .2em;
+}
+
+#top_bar h2 {
+    text-shadow: 1px 1px 1px black;
+    margin: .25em auto;
+    font-weight: normal;
+    word-spacing: .25em;
+}
+
+.alert li {
+    list-style:none;
+}
+
+.alert ul {
+    text-align: center;
+}
+
+.error {
+    margin: 0;
+}
+
+.formBtn {
+    width: 30%;
+    margin: 1.5em 10%;
+    padding: .5em 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-shadow: 1px 1px 1px black;
+    background-color: DarkSlateGrey;
+    color: white;
+}
+
+.formBtn a {
+    padding: .25em 5em;
 }
 
 

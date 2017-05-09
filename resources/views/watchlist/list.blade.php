@@ -8,36 +8,35 @@
     <div class="container-fluid">
         <div id='content'>
             <div id='top_bar'>
-            <form method="get" action="/list" name="sortForm" id="sortForm"> 
-                <label>SHOW</label>
-                <select name="listType" id="showSelect">
-                    <option>-----------------</option> 
-                    <option value='unwatched' {{ $listType == "unwatched" ?
-                        'SELECTED' : '' }}>UNWATCHED</option>
-                    <option value='watched' {{ $listType == "watched" ?
-                        'SELECTED' : '' }}>WATCHED</option>
-                    <option value='all' {{ $listType == "all" ? 'SELECTED' :
-                        '' }}>ALL</option>
-                </select>
-
-                <label>SORT BY</label>
-                <select name="sortBy" id="sortSelect">
-                    <option>-----------------</option>                    
-                    <option value="title" {{ $sortBy == "title" ? 'SELECTED' :
-                        '' }}> TITLE</option>
-                    <option value="rating" id="ratingOption" {{ $sortBy == "rating" ? 
-                        'SELECTED' : '' }} >RATING</option>
-                    <optgroup label="GENRE">
-                        @foreach($genreOptions as $id => $name)
-                            <option value="genre_{{ $id }}" {{ $sortBy == "'genre_'.$id" ? 'SELECTED' : '' }}>{{ $name }}</option>
-                        @endforeach
-                    </optgroup>
-                
-                </select>
-
-                <input type="submit" value="GO" class="sortBtn">
-            </form>
+                <form method="get" action="/list" name="sortForm" id="sortForm"> 
+                    <label>LIST</label>
+                    <select name="listType" id="showSelect">
+                        <option disabled selected value>-----------------</option> 
+                        <option value='unwatched' {{ $listType == "unwatched" ?
+                            'SELECTED' : '' }}>UNWATCHED</option>
+                        <option value='watched' {{ $listType == "watched" ?
+                            'SELECTED' : '' }}>WATCHED</option>
+                        <option value='all' {{ $listType == "all" ? 'SELECTED' :
+                            '' }}>ALL</option>
+                    </select>
+                    <label>SORT BY</label>
+                    <select name="sortBy" id="sortSelect">
+                        <option disabled selected value>-----------------</option>                    
+                        <option value="title" {{ $sortBy == "title" ? 'SELECTED' :
+                            '' }}> TITLE</option>
+                        <optgroup label="GENRE">
+                            @foreach($genreOptions as $id => $name)
+                                <option value="genre_{{ $id }}" {{ $sortBy == "'genre_'.$id" 
+                                    ? 'SELECTED' : '' }}>{{ $name }}</option>
+                            @endforeach
+                        </optgroup>
+                    </select>
+                    <input type="submit" value="GO" class="sortBtn">
+                </form>
             </div>
+
+            @include('errors')
+
             <a class='addBtn' href="/add"><i class="fa fa-plus" aria-hidden="true"></i>
                 &nbsp;ADD MOVIE</a> 
             
@@ -45,8 +44,6 @@
                 @include('sort.title')
             @elseif($sortBy == 'genre')
                 @include('sort.genre')
-            @elseif($sortBy == 'rating')
-                @include('sort.rating')
             @endif
 
         </div>
