@@ -11,6 +11,7 @@
             <form method="get" action="/list" name="sortForm" id="sortForm"> 
                 <label>SHOW</label>
                 <select name="listType" id="showSelect">
+                    <option>-----------------</option> 
                     <option value='unwatched' {{ $listType == "unwatched" ?
                         'SELECTED' : '' }}>UNWATCHED</option>
                     <option value='watched' {{ $listType == "watched" ?
@@ -21,19 +22,18 @@
 
                 <label>SORT BY</label>
                 <select name="sortBy" id="sortSelect">
+                    <option>-----------------</option>                    
                     <option value="title" {{ $sortBy == "title" ? 'SELECTED' :
                         '' }}> TITLE</option>
                     <option value="rating" id="ratingOption" {{ $sortBy == "rating" ? 
                         'SELECTED' : '' }} >RATING</option>
-                    <option value="genre">GENRE</option>
+                    <optgroup label="GENRE">
+                        @foreach($genreOptions as $id => $name)
+                            <option value="genre_{{ $id }}" {{ $sortBy == "'genre_'.$id" ? 'SELECTED' : '' }}>{{ $name }}</option>
+                        @endforeach
+                    </optgroup>
+                
                 </select>
-
-         {{--       <select name="genreName" id="genreSelect">
-                    @foreach($genreOptions as $genreOption)
-                        <option value="{{ $genre->name }}" {{ $sortBy == "genre" ? 'SELECTED' : '' }}>{{$name}}</option>
-                    @endforeach
-                   
-                </select>  --}}
 
                 <input type="submit" value="GO" class="sortBtn">
             </form>

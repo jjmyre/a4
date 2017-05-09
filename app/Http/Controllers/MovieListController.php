@@ -21,7 +21,6 @@ class MovieListController extends Controller
         $sortBy = $request->input('sortBy');
 
       
-
         # Determine the type of list and the corresponding movies
    /*     if ($listType == 'unwatched') {
             $movies = Movie::with('genres')->where('watched', '=', false)
@@ -35,24 +34,34 @@ class MovieListController extends Controller
             $movies = Movie::with('genres')->orderBy('title','asc')->get();
         }
         
-        # Determine sroting method for display
+        # Determine sorting method for display
         if ($sortBy == 'genre') {
 
         }
         elseif ($sortBy == 'rating') {
 
         }
+        
 
+        
 */
-        $movies = Movie::with('genres')->where('watched', '=', false)
-                ->orderBy('title', 'asc')->get();
+        $movies = Movie::with('genres')->orderBy('title', 'asc')->get();
 
+        $genreOptions = [];
 
+        foreach($movies as $movie) {
+            foreach($movie->genres as $genre) {
+                ($genreOptions[$genre['id']] = $genre->name);
+            }
+        }
+
+        ksort($genreOptions);
+        
         return view('watchlist.list')->with([
             'listType' => $listType,
             'sortBy' => $sortBy,
             'movies' => $movies,
- //           'genreOptions' => $genreOptions,
+            'genreOptions' => $genreOptions,
             ]); 
 
 	}
@@ -67,8 +76,6 @@ class MovieListController extends Controller
     }
 
     public function storeMovie(Request $request) {
-        
-        $genreCheckboxes = Genre::getGenresForCheckboxes();
 
         #Validate inputs using laravel class
         $this->validate($request, [
@@ -106,7 +113,9 @@ class MovieListController extends Controller
 
         Session::flash('message', 'The movie '.$request->title.' was successfully added.');
 
-        # Redirect the user to book index
+        $genreCheckboxes = Genre::getGenresForCheckboxes();
+
+        # Redirect back to add
         return redirect('/add')->with([
             'genreCheckboxes' => $genreCheckboxes
         ]);

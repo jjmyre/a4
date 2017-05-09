@@ -15,6 +15,28 @@ a {
     color: black;
 }
 
+option,
+label,
+.movieList p,
+#addForm p {
+    font-weight: normal;
+}
+
+#addForm p {
+    text-align: center;
+}
+
+#addForm 
+
+optgroup {
+    font-weight: normal;
+    text-decoration: underline;
+}
+
+select {
+    font-weight: bold;
+}
+
 .red {
     color: red;
 }

@@ -17,7 +17,7 @@
                 </div>
             @endif
 
-        <form method='POST' action='/add'>
+        <form method='POST' action='/add' name="addMovie" id="addForm">
             {{ csrf_field() }}
 
             <p><span class="red">*</span> - required </p>
@@ -34,7 +34,7 @@
             <input type='text' name='runtime' id='runtime' placeholder="minutes" 
                 value="{{old('runtime'),''}}"><br>
 
-            <label for='imdb_link'><span class="red">*</span>Link to IMDB</label>
+            <label><span class="red">*</span>Link to IMDB</label>
             <input type='text' name='imdb_link' id='imdb' placeholder="imdb url" 
                 value="{{old('imdb_link'),''}}" required>
             
@@ -42,13 +42,13 @@
                 
                 @foreach($genreCheckboxes as $id => $name)
                     <input type='checkbox' value='{{ $id }}' class="genreCheckbox" 
-                        name='genres' id="genre_{{ $id }}">
+                        name='genres' id="genre_{{ $id }}" {{ old('genres') == $id ? 'CHECKED' : '' }} >
                     <label for='genre_{{ $id }}'>{{ $name }}</label>
                 @endforeach
             <br>
             <p>Have you watched this movie?</p>
-            <input type='radio' name='watched' value='0' checked />No</input>
-            <input type='radio' name='watched' value='1' {{ old('watched') == 1 ? 'CHECKED' : '' }} />Yes</input>
+            <label><input type='radio' name='watched' value='0' checked />No</label>
+            <label><input type='radio' name='watched' value='1' {{ old('watched') == 1 ? 'CHECKED' : '' }} />Yes</label>
 
              <div id="movieRating">
                 <p><span class="red">*</span>Since you've seen this movie, what rating do you give it?</p>

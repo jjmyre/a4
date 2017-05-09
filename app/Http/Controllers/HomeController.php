@@ -14,7 +14,7 @@ class HomeController extends Controller
         $sortBy = 'title';
         $movies = Movie::where('watched', '=', false)->orderBy('title', 'asc')->get();
 
-        return view('watchlist.list')->with([
+        return redirect('/list')->with([
             'listType' => $listType,
             'sortBy' => $sortBy,
             'movies' => $movies,

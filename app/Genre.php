@@ -24,17 +24,5 @@ class Genre extends Model
 
     }
 
-    public static function getGenresForOptions() {
-
-        $genres = Genre::orderBy('name','ASC')->get();
-
-        $genreOptions = [];
-
-        foreach($genres as $genre) {
-            $genreOptions[$genre['id']] = $genre->name;
-        }
-
-        return $genreOptions;
-    }
 }
 
