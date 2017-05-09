@@ -64,7 +64,7 @@ class MoviesTableSeeder extends Seeder
             'runtime' => 122,
             'imdb_link' => 'http://www.imdb.com/title/tt0477348/?ref_=fn_al_tt_1',
             'watched' => 0,
-            'rating' => 5,
+            'rating' => null,
         ]);
 
         Movie::insert([
