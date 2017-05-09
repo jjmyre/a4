@@ -4,8 +4,6 @@ use Illuminate\Database\Seeder;
 use App\Movie;
 use App\Genre;
 
-
-
 class GenreMovieTableSeeder extends Seeder
 {
     /**
@@ -16,10 +14,16 @@ class GenreMovieTableSeeder extends Seeder
     public function run()
     {
         $movies =[
-            'The Revenant' => ['historical','western','adventure'],
-            'The Godfather' => ['classic','crime','drama'],
-            "Schindler's List" => ['historical','drama','biopic'],
-            "Oldboy" => ['foreign','action','thriller']
+            'Star Wars: Episode IV - A New Hope' => ['Science fiction','Classic','Adventure'],
+            'The Revenant' => ['Historical','Western','Adventure'],
+            'The Godfather' => ['Classic','Crime','Drama'],
+            'Oldboy' => ['Foreign','Action','Thriller'],
+            'The Wolf of Wall Street' => ['Crime', 'Drama', 'Biopic'],
+            'Alien' => ['Science fiction','Classic','Horror'],
+            'No Country for Old Men' => ['Crime','Thriller','Action'],
+            'Prometheus' => ['Science fiction','Horror'],
+            'Guardians of the Galaxy' => ['Science fiction', 'Adventure', 'Comedy'],
+            'Jaws' => ['Horror','Classic']
         ];
 
         foreach($movies as $title => $genres) {

@@ -32,6 +32,15 @@ h2 {
     font-size: 1.5em;
 }
 
+.fa-imdb {
+    padding: 0;
+    margin: 0;
+}
+
+.fa-imdb:hover {
+    color: #ebc749;
+} 
+
 .container-fluid {
     padding: 0;
 }

@@ -14,12 +14,12 @@
 # Home
 Route::get('/', 'HomeController');
 
-# Show sorted movies on list
+# Show & sort movies to list
 Route::get('/list', 'MovieListController@list');
 
 # Add Movie to List
-Route::get('/add', 'MovieListController@add');
-Route::post('/add', 'MovieListController@add');
+Route::get('/add', 'MovieListController@addMovie');
+Route::post('/add', 'MovieListController@storeMovie');
 
 # Edit/update Movie from list
 Route::get('/update/{id}', 'MovieListController@update');

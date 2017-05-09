@@ -12,54 +12,104 @@ class MovieListController extends Controller
 
     public function list(Request $request) {
         
-        $listType = $request->input('listType');
-        $sortBy = $request->input('sortBy');
-
         $this->validate($request, [
             'listType' => 'alpha',
             'sortBy' => 'alpha',
             ]);
 
-        if ($sortBy == 'title') {
-            if ($listType == 'unwatched') {
-                $movies = Movie::with('genres')->where('watched', '=', false)->orderBy('title', 'asc')->get();
-            }
-            elseif ($listType == 'watched') {
-                $movies = Movie::with('genres')->where('watched', '=', true)->orderBy('title', 'asc')->get();
-            }
-            elseif ($listType == 'all') {
-                $movies = Movie::with('genres')->orderBy('title','asc')->get();
-                              
-            }
-        }       
-     
-    /*     
-        elseif ($sortBy == 'actor'){
-            
-        }
-        
-        elseif ($sortBy == 'genre'){
-            
-        }
-        
-        elseif ($sortBy == 'director'){
-            
-        }
-        
-        elseif ($sortBy == 'director'){
-            
-        }   */
+        $listType = $request->input('listType');
+        $sortBy = $request->input('sortBy');
 
-        return view('list')->with([
+      
+
+        # Determine the type of list and the corresponding movies
+   /*     if ($listType == 'unwatched') {
+            $movies = Movie::with('genres')->where('watched', '=', false)
+                ->orderBy('title', 'asc')->get();
+        }
+        elseif ($listType == 'watched') {
+            $movies = Movie::with('genres')->where('watched', '=', true)
+                ->orderBy('title', 'asc')->get();
+        }
+        elseif ($listType == 'all') {
+            $movies = Movie::with('genres')->orderBy('title','asc')->get();
+        }
+        
+        # Determine sroting method for display
+        if ($sortBy == 'genre') {
+
+        }
+        elseif ($sortBy == 'rating') {
+
+        }
+
+*/
+        $movies = Movie::with('genres')->where('watched', '=', false)
+                ->orderBy('title', 'asc')->get();
+
+
+        return view('watchlist.list')->with([
             'listType' => $listType,
             'sortBy' => $sortBy,
             'movies' => $movies,
-        //    'genres' => $genres,
-            ]);     
+ //           'genreOptions' => $genreOptions,
+            ]); 
+
 	}
 
-    public function add() {
-        return view('add');
+    public function addMovie() {
+
+        $genreCheckboxes = Genre::getGenresForCheckboxes();
+
+        return view('watchlist.add')->with([
+            'genreCheckboxes' => $genreCheckboxes
+        ]);
+    }
+
+    public function storeMovie(Request $request) {
+        
+        $genreCheckboxes = Genre::getGenresForCheckboxes();
+
+        #Validate inputs using laravel class
+        $this->validate($request, [
+            'title' => "required|regex:/^[\pL\d\s\?\-\_\:]+$/u",  
+            'release_year' => 'nullable|numeric|min:1900',
+            'runtime' => 'nullable|numeric|min:30|max:300',
+            'imdb_link' => 'required|url',
+            'genres' => 'required',
+            'watched' => 'required',
+            'rating' => 'integer',
+        ]);
+
+        # Get values from add form
+        $movie = new Movie();
+        $movie->title = $request->title;
+        $movie->release_year = $request->release_year;
+        $movie->runtime = $request->runtime;
+        $movie->imdb_link = $request->imdb_link;
+        $movie->watched = $request->watched;
+        $movie->rating = $request->rating;
+
+        if($request->watched == '1') {
+            $this->validate($request, [
+                'rating' => 'required|integer', 
+            ]);
+        }
+
+        #save movie
+        $movie->save();
+
+        #Get genres and sync with movie
+        $genres = ($request->genres);
+        $movie->genres()->sync($genres);
+        $movie->save();
+
+        Session::flash('message', 'The movie '.$request->title.' was successfully added.');
+
+        # Redirect the user to book index
+        return redirect('/add')->with([
+            'genreCheckboxes' => $genreCheckboxes
+        ]);
     }
 
     public function delete(Request $request) {
@@ -80,7 +130,7 @@ class MovieListController extends Controller
     }
 
     public function update() {
-        return view('update');
+        return view('watchlist.update');
     }
 
 }

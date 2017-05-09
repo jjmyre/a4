@@ -17,10 +17,10 @@ class CreateMoviesTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('title');
-            $table->string('director')->nullable();
-            $table->string('cast')->nullable();
+            $table->integer('release_year');
             $table->integer('runtime')->nullable();
-            $table->boolean('watched');
+            $table->string('imdb_link');
+            $table->boolean('watched')->default(0);
             $table->integer('rating')->nullable();
         });
     }

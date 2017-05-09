@@ -14,6 +14,13 @@ $(document).ready(function(){
     	if ($('option:selected').val() == 'watched') 
             $('#ratingOption').show();
     });
+
+	var today = new Date();
+	var year = today.getFullYear();
+ 
+	document.getElementById("datefield").setAttribute("max", today);
+
+
 });
 
 
