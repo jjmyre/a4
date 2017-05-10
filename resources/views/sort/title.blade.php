@@ -1,4 +1,11 @@
-<h2 class="listTitle">List of Movies You Want to Watch</h2>
+@if($listType == 'unwatched')
+    <h2 class="listTitle">Movies You Want to See</h2>
+@elseif($listType == 'watched')
+    <h2 class="listTitle">Movies You Have Already Seen</h2>
+@elseif($listType == 'all')
+    <h2 class="listTitle">All of Your Movies</h2>
+@endif
+
             
 @if(count($movies) == 0)
     <section class='movieList'>

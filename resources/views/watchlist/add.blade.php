@@ -12,50 +12,48 @@
         </div>
         @include('errors')
 
-        <form method='POST' action='/add' name="addMovie" id="addForm">
+        <form method='POST' action='/add' name="addMovie" class="form">
             {{ csrf_field() }}
-
-            <p><span class="red">*</span> - required </p>
-
-            <label for='title'><span class="red">*</span>Title</label>
-            <input type='text' name='title' id='title' value="{{ old('title'), ''}}"
-                required><br>
-
-            <label for='release_year'>Year of Release</label>
-            <input type='text' placeholder="YYYY" maxlength='4' name='release_year' 
-                id='release_year' value="{{old('release_year'), ''}}"><br>
-
-            <label for='runtime'>Runtime</label>
-            <input type='text' name='runtime' id='runtime' placeholder="minutes" 
-                value="{{old('runtime'),''}}"><br>
-
-            <label><span class="red">*</span>Link to IMDB</label>
-            <input type='text' name='imdb_link' id='imdb' placeholder="imdb url" 
-                value="{{old('imdb_link'),''}}" required>
-            
-            <p><span class="red">*</span>Genres (check all that apply to this movie)</p>
-                
-                @foreach($genreCheckboxes as $id => $name)
-                    <input type='checkbox' value='{{ $id }}' class="genreCheckbox" 
-                        name='genres[]' id="genre_{{ $id }}" {{ old('genres') == $id ? 'CHECKED' : '' }} >
-                    <label for='genre_{{ $id }}'>{{ $name }}</label>
-                @endforeach
             <br>
-            <p>Have you watched this movie?</p>
-            <label><input type='radio' name='watched' value='0' checked />No</label>
-            <label><input type='radio' name='watched' value='1' {{ old('watched') == 1 ? 'CHECKED' : '' }} />Yes</label>
+            <em><p><span class="red">*</span> - required </p></em><br>
+            <p><span class="red">*</span>Have you already watched this movie?</p>
+            <div id="watchRadios">    
+                <label><input type='radio' name='watched' value='0' checked />No</label>
+                <label><input type='radio' name='watched' value='1' {{ old('watched') == 1 ? 'CHECKED' : '' }} />Yes</label>
+            </div><br>
 
-             <div id="movieRating">
-                <p><span class="red">*</span>Since you've seen this movie, what rating do you give it?</p>
-                <label><input type="radio" class="movieRating" name="rating" value="1">1</label>
-                <label><input type="radio" class="movieRating" name="rating" value="2">2</label> 
-                <label><input type="radio" class="movieRating" name="rating" value="3">3</label> 
-                <label><input type="radio" class="movieRating" name="rating" value="4">4</label> 
-                <label><input type="radio" class="movieRating" name="rating" value="5">5</label>      
-            </div>  
-        
-            <input class='formBtn' type='submit' value='ADD MOVIE'>
-            <a class='formBtn' href="/">DONE</a>
+            <label for='title' class="alignLabel"><span class="red">*</span>Title</label>
+            <input type='text' name='title' class="alignInput" id='title' value="{{ old('title'), ''}}"
+                required><br><br>
+
+            <label for='release_year' class="alignLabel">Release Year</label>
+            <input type='text' class="alignInput" placeholder="YYYY" maxlength='4' name='release_year' 
+                id='release_year' value="{{old('release_year'), ''}}"><br><br>
+
+            <label for='runtime' class="alignLabel">Runtime</label>
+            <input type='text' name='runtime' class="alignInput"  id='runtime' placeholder="minutes" 
+                value="{{old('runtime'),''}}"><br><br>
+
+            <label class="alignLabel"><span class="red">*</span>IMDB Link</label>
+            <input type='text' name='imdb_link' class="alignInput" id='imdb' placeholder="full url" 
+                value="{{old('imdb_link'),''}}" required><br><br>
+            
+            <p class="genreLabel"><span class="red">*</span>Genres</p> 
+            <em><p>Check all that apply (but at least one)</p></em>
+
+            <div id="genreBoxContainer">     
+                @foreach($genreCheckboxes as $id => $name)
+                    <div class="genreBox">
+                        <input type='checkbox' value='{{ $id }}' 
+                            name='genres[]' id="genre_{{ $id }}" {{ old('genres') == $id ? 'CHECKED' : '' }} >  
+                        <label for='genre_{{ $id }}'>{{ $name }}</label>
+                    </div>
+                @endforeach  
+            </div>
+
+            <input class='formBtn btn btn-success' type='submit' value='ADD'><br>
+            <a href="/" class="goBack"><i class="fa fa-arrow-left" aria-hidden="true"></i> DONE / GO BACK TO LIST</a>
+            
 
         </form>
     </div>

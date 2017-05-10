@@ -15,90 +15,82 @@ a {
     color: black;
 }
 
+/* FORMS */
+
 option,
 label,
 .movieList p,
-#addForm p {
+.form p {
     font-weight: normal;
 }
 
-#addForm p {
+.form p {
     text-align: center;
 }
 
-#addForm 
+.alignLabel {
+    width: 30%;
+    text-align: right;
+    margin: 0 .25em 0 0;
+}
 
-optgroup {
-    font-weight: normal;
-    text-decoration: underline;
+.alignInput {
+    width: 50%;
+    margin-right: 10%;
+}
+
+#watchRadios {
+    width: 100%;
+    margin: 0 45%;
+}
+
+#watchRadios label {
+    text-align: center;
+    display: inline-block;
+}
+
+#watchRadios input {
+    margin: 0 .25em;
+}
+
+.genreLabel {
+    border-bottom: 2px dotted black;
+    margin: 0 18% .5em 18%;
+}
+
+#watchRadios input {
+    display: inline-block;
+}
+
+#genreBoxContainer {
+    margin: 0 5% 2em 5%;
+}
+
+.genrebox {
+    width: 100%;
+}
+
+.genreBox input {
+    width: 1em;
+    margin-left: 42%;
+}
+
+.genreBox label {
+    margin-left: .25em;
 }
 
 select {
     font-weight: bold;
 }
 
-.red {
-    color: red;
+.goBack {
+    display: inline-block;
+    margin: .5em 0 2em 2em;
 }
 
-.movieList p {
-    text-align: left;
-    font-size: 1em;
-    margin: 0;
-    padding: .2em 0;
-}
-
-h2 {
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.5em;
-}
-
-.fa-imdb {
-    padding: 0;
-    margin: 0;
-}
-
-.fa-imdb:hover {
-    color: #ebc749;
+.goBack:hover {
+    text-decoration: none;
 } 
-
-.container-fluid {
-    padding: 0;
-}
-
-#content {
-    background-color: #F8F8FF;
-    margin: 0 auto 2em auto;
-    width: 100%;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    padding: 0;
-    z-index: 10000;
-    background: black;
-    width: 100%;
-}
-
-#banner {
-    background-color: black;
-    width: 100%;
-    margin: 0 auto;
-    padding: .5em 0;
-    color: white;
-    font-size: 2.1em;
-    text-shadow: 2px 2px 2px black;
-    padding: .75em 0;
-    letter-spacing: .2em;
-    text-align: center;
-}
 
 .addBtn {
     background-color: dimgrey;
@@ -179,6 +171,69 @@ header {
 .addBtn:active,
 .sortBtn:active {
     font-weight:bold;
+}
+
+.red {
+    color: red;
+}
+
+.movieList p {
+    text-align: left;
+    font-size: 1em;
+    margin: 0;
+    padding: .2em 0;
+}
+
+h2 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.fa-imdb {
+    padding: 0;
+    margin: 0;
+}
+
+.fa-imdb:hover {
+    color: #ebc749;
+} 
+
+.container-fluid {
+    padding: 0;
+}
+
+#content {
+    background-color: #F8F8FF;
+    margin: 0 auto 2em auto;
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 0;
+    z-index: 10000;
+    background: black;
+    width: 100%;
+}
+
+#banner {
+    background-color: black;
+    width: 100%;
+    margin: 0 auto;
+    padding: .5em 0;
+    color: white;
+    font-size: 2.1em;
+    text-shadow: 2px 2px 2px black;
+    padding: .75em 0;
+    letter-spacing: .2em;
+    text-align: center;
 }
 
 .movieTitle {
@@ -276,13 +331,12 @@ header {
 }
 
 .formBtn {
-    width: 30%;
-    margin: 1.5em 10%;
+    width: 20%;
+    margin: 1em 40%;
     padding: .5em 0;
     border: 1px solid black;
     border-radius: 5px;
     text-shadow: 1px 1px 1px black;
-    background-color: DarkSlateGrey;
     color: white;
 }
 

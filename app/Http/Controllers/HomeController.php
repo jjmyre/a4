@@ -10,8 +10,13 @@ use Session;
 class HomeController extends Controller
 {
     function __invoke(){
-        $listType = 'default';
-        $sortBy = 'default';
+        
+        # Default home values (nothing will list)
+
+        $listType = 'all';
+        $sortBy = 'title';
+
+        # Get genre options for 'sort by' dropdown that are actually used by movies
 
         $movies = Movie::with('genres')->orderBy('title', 'asc')->get();
 
@@ -22,12 +27,13 @@ class HomeController extends Controller
                 ($genreOptions[$genre['id']] = $genre->name);
             }
         }
-
+        
         ksort($genreOptions);
 
         return view('watchlist.list')->with([
             'listType' => $listType,
             'sortBy' => $sortBy,
+            'movies' => $movies,
             'genreOptions' => $genreOptions,
         ]);     
     }

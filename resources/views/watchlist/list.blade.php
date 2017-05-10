@@ -13,20 +13,20 @@
                     <select name="listType" id="showSelect">
                         <option disabled selected value>-----------------</option> 
                         <option value='unwatched' {{ $listType == "unwatched" ?
-                            'SELECTED' : '' }}>UNWATCHED</option>
+                            'SELECTED' : '' }}>Unwatched</option>
                         <option value='watched' {{ $listType == "watched" ?
-                            'SELECTED' : '' }}>WATCHED</option>
+                            'SELECTED' : '' }}>Watched</option>
                         <option value='all' {{ $listType == "all" ? 'SELECTED' :
-                            '' }}>ALL</option>
+                            '' }}>All</option>
                     </select>
                     <label>SORT BY</label>
                     <select name="sortBy" id="sortSelect">
                         <option disabled selected value>-----------------</option>                    
                         <option value="title" {{ $sortBy == "title" ? 'SELECTED' :
-                            '' }}> TITLE</option>
-                        <optgroup label="GENRE">
+                            '' }}> Title</option>
+                        <optgroup label="Genre">
                             @foreach($genreOptions as $id => $name)
-                                <option value="genre_{{ $id }}" {{ $sortBy == "'genre_'.$id" 
+                                <option value="{{ $name }}" {{ $sortBy == $name 
                                     ? 'SELECTED' : '' }}>{{ $name }}</option>
                             @endforeach
                         </optgroup>
@@ -42,7 +42,7 @@
             
             @if($sortBy == 'title')
                 @include('sort.title')
-            @elseif($sortBy == 'genre')
+            @else
                 @include('sort.genre')
             @endif
 

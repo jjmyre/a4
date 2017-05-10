@@ -21,7 +21,6 @@ class CreateMoviesTable extends Migration
             $table->integer('runtime')->nullable();
             $table->string('imdb_link');
             $table->boolean('watched')->default(0);
-            $table->integer('rating')->nullable();
         });
     }
 
