@@ -23,6 +23,7 @@
             </div><br>
 
             <label for='title' class="alignLabel"><span class="red">*</span>Title</label>
+
             <input type='text' name='title' class="alignInput" id='title' value="{{ old('title'), ''}}"
                 required><br><br>
 

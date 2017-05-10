@@ -32,6 +32,7 @@ label,
     width: 30%;
     text-align: right;
     margin: 0 .25em 0 0;
+    font-weight: bold;
 }
 
 .alignInput {
@@ -56,6 +57,7 @@ label,
 .genreLabel {
     border-bottom: 2px dotted black;
     margin: 0 18% .5em 18%;
+    font-weight: bold;
 }
 
 #watchRadios input {
@@ -90,6 +92,7 @@ select {
 
 .goBack:hover {
     text-decoration: none;
+    font-weight: bold;
 } 
 
 .addBtn {
@@ -284,17 +287,14 @@ header {
     list-style: none;
 }
 
-
-
 .listTitle {
-    background-color: #DCDCDC;
     width: 100%;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     padding: .75em 0;
     margin: 0;
     word-spacing: .25em;
-    font-weight: normal;
+    font-weight: bold;
 }
 
 #top_bar {

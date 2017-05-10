@@ -11,7 +11,7 @@
                 <form method="get" action="/list" name="sortForm" id="sortForm"> 
                     <label>LIST</label>
                     <select name="listType" id="showSelect">
-                        <option disabled selected value>-----------------</option> 
+                        <option disabled>-----------------</option> 
                         <option value='unwatched' {{ $listType == "unwatched" ?
                             'SELECTED' : '' }}>Unwatched</option>
                         <option value='watched' {{ $listType == "watched" ?
@@ -21,7 +21,7 @@
                     </select>
                     <label>SORT BY</label>
                     <select name="sortBy" id="sortSelect">
-                        <option disabled selected value>-----------------</option>                    
+                        <option disabled>-----------------</option>                    
                         <option value="title" {{ $sortBy == "title" ? 'SELECTED' :
                             '' }}> Title</option>
                         <optgroup label="Genre">

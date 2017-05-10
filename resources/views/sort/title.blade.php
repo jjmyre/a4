@@ -9,7 +9,7 @@
             
 @if(count($movies) == 0)
     <section class='movieList'>
-        <h3>There are no movies in your list.</h3>
+        <h3>There are no movies in this list.</h3>
     </section>
 @else
     @foreach($movies as $movie)

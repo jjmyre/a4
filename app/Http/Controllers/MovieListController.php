@@ -15,8 +15,8 @@ class MovieListController extends Controller
         # Placing default settings for redirects
     
         $this->validate($request, [
-            'listType' => 'required',
-            'sortBy' => 'required',
+            'listType' => 'required|alpha',
+            'sortBy' => 'required|alpha',
             ]);
 
         $listType = $request->input('listType');
@@ -24,6 +24,7 @@ class MovieListController extends Controller
 
         
         # Get genres for sortby dropdown that are actually used instead of all of them
+        # Also $movies will be used if $listType = 'all' 
         
         $movies = Movie::with('genres')->orderBy('title', 'asc')->get();
 
@@ -60,6 +61,16 @@ class MovieListController extends Controller
                 })->orderBy('title', 'asc')->get();
             }
         }
+        elseif ($listType == 'all') {
+            if ($sortBy == 'title') {
+                $movies = Movie::with('genres')->orderBy('title', 'asc')->get();
+            } 
+            elseif ($sortBy != 'title') {
+                $movies = Movie::with('genres')->whereHas('genres', function($query) use ($sortBy) {
+                    $query->where('name', '=', $sortBy);
+                })->orderBy('title', 'asc')->get();
+            }
+        }
      
         return view('watchlist.list')->with([
             'listType' => $listType,
@@ -76,7 +87,7 @@ class MovieListController extends Controller
         $genreCheckboxes = Genre::getGenresForCheckboxes();
 
         return view('watchlist.add')->with([
-            'genreCheckboxes' => $genreCheckboxes
+            'genreCheckboxes' => $genreCheckboxes,
         ]);
     }
 
@@ -85,7 +96,7 @@ class MovieListController extends Controller
         #Validate inputs using laravel class
         $this->validate($request, [
             'title' => "required|regex:/^[\pL\d\s\?\-\_\:]+$/u",  
-            'release_year' => 'nullable|numeric|min:1900|max:2100',
+            'release_year' => 'nullable|digits:4|integer|min:1900|max:'.(date('Y')),
             'runtime' => 'nullable|numeric|min:30|max:300',
             'imdb_link' => 'required|url',
             'genres' => 'required',
@@ -155,7 +166,7 @@ class MovieListController extends Controller
         #Validate inputs using laravel class
         $this->validate($request, [
             'title' => "required|regex:/^[\pL\d\s\?\-\_\:]+$/u",  
-            'release_year' => 'nullable|numeric|min:1900|max:2100',
+            'release_year' => 'nullable|digits:4|integer|min:1900|max:'.(date('Y')),
             'runtime' => 'nullable|numeric|min:30|max:300',
             'imdb_link' => 'required|url',
             'genres' => 'required',
