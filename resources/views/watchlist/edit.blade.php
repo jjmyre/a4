@@ -37,7 +37,7 @@
                     value="{{ old('imdb_link', $movie->imdb_link) }}" required><br><br>
                 
                 <p class="genreLabel"><span class="red">*</span>Genres</p>
-                <em><p>Check all that apply (but at least one)</p></em>
+                <p><em>Check all that apply (but at least one)</em></p>
                    
                 <div id="genreBoxContainer">
                     @foreach($genreCheckboxes as $id => $name)
