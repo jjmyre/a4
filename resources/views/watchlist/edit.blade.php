@@ -1,29 +1,25 @@
 @extends('layouts.master')
 
 @section('title')
-    Edit Movie
+    Edit Movie Information
 @endsection
 
 @section('content')
  <div class="container-fluid">
     <div id='content'>
         <div id="top_bar">
-            <h2>EDIT: {{ $movie->title }} </h2>
+            <h2>Edit: {{ $movie->title }} </h2>
         </div>
         
         @include('errors')
 
         <form method='POST' action='/edit/{{ $movie->id }}' name="editMovie" class="form"> 
+            
             {{ csrf_field() }}
-            <br>
-            <em><p><span class="red">*</span> - required</p></em><br>
-            <input type='hidden' class="alignInput" name='id' value='{{ $movie->id }}'>
+            
+            <input type='hidden' name='id' value='{{ $movie->id }}'>
 
-            <p><span class="red">*</span>Have you watched this movie?</p>
-            <div id="watchRadios">
-                <label><input type='radio' name='watched' value='0' checked />No</label>
-                <label><input type='radio' name='watched' value='1' {{ $movie->watched == true ? 'CHECKED' : '' }} />Yes</label><br>
-            </div><br>
+            <br>
             <label class="alignLabel" for='title'><span class="red">*</span>Title</label>
             <input type='text' name='title' class="alignInput"  id='title' 
                 value="{{ old('title', $movie->title) }}" required><br><br>
@@ -53,8 +49,8 @@
                 @endforeach
             </div>
 
-            <input class='formBtn btn btn-success' type='submit' value='SAVE CHANGES'>
-            <a href="/" class="goBack"><i class="fa fa-arrow-left" aria-hidden="true"></i> CANCEL / GO BACK TO LIST</a>
+            <input class='formBtn btn btn-success' type='submit' value='UPDATE'>
+            <a href="/" class="goBack"><i class="fa fa-arrow-left" aria-hidden="true"></i> GO BACK TO LIST</a>
 
         </form>
     </div>

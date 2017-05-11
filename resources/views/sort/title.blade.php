@@ -9,33 +9,67 @@
             
 @if(count($movies) == 0)
     <section class='movieList'>
-        <h3>There are no movies in this list.</h3>
+        <p>There are no movies in this list.</p>
     </section>
 @else
     @foreach($movies as $movie)
         <section class='movieList'>
             <h3>{{$movie->title}} &nbsp; 
-                <a href="{{$movie->imdb_link}}" target="_blank"><i class="fa fa-imdb yellow" aria-hidden="true"></i></a>
+                <a href="{{ $movie->imdb_link }}" target="_blank"><i class="fa fa-imdb yellow" aria-hidden="true"></i></a>
             </h3>
             <p>Genres:
                 @foreach($movie->genres as $genre) 
-                    <a class="genre" href="">{{$genre->name.' '}}</a>
+                    <span class="genre" href="">{{$genre->name.' '}}</span>
                 @endforeach
             </p>  
 
             @if($movie->release_year)
-                <p>Release Year: {{$movie->release_year}}</p>
+                <p>Release Year: {{ $movie->release_year }}</p>
             @endif
 
             @if($movie->runtime)
-                <p>Runtime: {{$movie->runtime}} minutes</p>
+                <p>Runtime: {{ $movie->runtime }} minutes</p>
             @endif
-
+            
+            <br>
             <div class="actionDiv">
-                <a class='ved' href='/edit/{{$movie->id}}'><i class='fa fa-pencil'></i> EDIT</a>
-
-                <a class='ved' href='/delete/{{$movie->id}}'><i class='fa fa-trash'></i> DELETE</a>
+                <a class='ved' href='/edit/{{$movie->id}}'>EDIT MOVIE INFO</a>
+                <a class='ved' href='/delete/{{$movie->id}}'>DELETE MOVIE</a>
             </div>
+            <hr>
+            
+            @if($movie->watched)
+                <p class="red"><i class="fa fa-check" aria-hidden="true"></i> WATCHED
+                @if($movie->rating == 5)
+                    <i class="fa fa-star star" aria-hidden="true"></i>&nbsp;
+                    <i class="fa fa-star star" aria-hidden="true"></i>&nbsp;
+                    <i class="fa fa-star star" aria-hidden="true"></i>&nbsp;
+                    <i class="fa fa-star star" aria-hidden="true"></i>&nbsp;
+                    <i class="fa fa-star star" aria-hidden="true"></i></p>
+                @elseif($movie->rating == 4)
+                    <i class="fa fa-star star" aria-hidden="true"></i>&nbsp;
+                    <i class="fa fa-star star" aria-hidden="true"></i>&nbsp;
+                    <i class="fa fa-star star" aria-hidden="true"></i>&nbsp;
+                    <i class="fa fa-star star" aria-hidden="true"></i></p>
+                @elseif($movie->rating == 3)
+                    <i class="fa fa-star star" aria-hidden="true"></i>&nbsp;
+                    <i class="fa fa-star star" aria-hidden="true"></i>&nbsp;
+                    <i class="fa fa-star star" aria-hidden="true"></i></p>
+                @elseif($movie->rating == 2)
+                    <i class="fa fa-star star" aria-hidden="true"></i>&nbsp;
+                    <i class="fa fa-star star" aria-hidden="true"></i></p>
+                @elseif($movie->rating == 1)
+                    <i class="fa fa-star star" aria-hidden="true"></i></p>
+                @elseif(!$movie->rating)
+                    unrated</p>
+                @endif
+            @else
+                <p class="gray">UNWATCHED </p>
+            @endif
+            <div class="actionDiv">
+                <a class='ved' href='/update/{{$movie->id}}'>UPDATE STATUS / RATING</a>
+            </div>
+
         </section>
     @endforeach
 @endif

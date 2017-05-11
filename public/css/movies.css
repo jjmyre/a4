@@ -15,6 +15,10 @@ a {
     color: black;
 }
 
+hr {
+    margin: .8em 0;
+}
+
 /* FORMS */
 
 option,
@@ -40,9 +44,34 @@ label,
     margin-right: 10%;
 }
 
-#watchRadios {
+.watch {
+    margin-top: .5em;
+}
+
+.star {
+    color: yellow;
+    text-shadow: 2px 2px 2px black;
+}
+
+#movieRating {
     width: 100%;
-    margin: 0 45%;
+}
+
+#movieRating p {
+    text-align: center;
+}
+
+.ratingRadios {
+    margin-left: 35%;
+}
+
+.ratingRadios input {
+    margin: 0 .2em;
+}
+
+#watchedBox {
+    margin-left: 44%;
+    margin-top: .5em;
 }
 
 #watchRadios label {
@@ -72,13 +101,19 @@ label,
     width: 100%;
 }
 
-.genreBox input {
+.genreBox input,
+.alignLabelW {
     width: 1em;
     margin-left: 42%;
 }
 
-.genreBox label {
+.genreBox label,
+.alignLabelW {
     margin-left: .25em;
+}
+
+.genre {
+    margin: 0 .1em;
 }
 
 select {
@@ -180,11 +215,15 @@ select {
     color: red;
 }
 
+.gray {
+    color: DarkSlateGrey;
+}
+
 .movieList p {
     text-align: left;
     font-size: 1em;
     margin: 0;
-    padding: .2em 0;
+    padding: 0;
 }
 
 h2 {
@@ -324,6 +363,11 @@ header {
 
 .alert ul {
     text-align: center;
+}
+
+.alert {
+    text-align: center;
+    margin: 0 auto;
 }
 
 .error {

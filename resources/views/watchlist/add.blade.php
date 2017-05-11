@@ -8,20 +8,15 @@
  <div class="container-fluid">
     <div id='content'>
         <div id="top_bar">
-            <h2>ADD A NEW MOVIE</h2>
+            <h2>Add a New Unwatched Movie</h2>
         </div>
         @include('errors')
 
         <form method='POST' action='/add' name="addMovie" class="form">
+            
             {{ csrf_field() }}
-            <br>
-            <em><p><span class="red">*</span> - required </p></em><br>
-            <p><span class="red">*</span>Have you already watched this movie?</p>
-            <div id="watchRadios">    
-                <label><input type='radio' name='watched' value='0' checked />No</label>
-                <label><input type='radio' name='watched' value='1' {{ old('watched') == 1 ? 'CHECKED' : '' }} />Yes</label>
-            </div><br>
-
+            <br>    
+            
             <label for='title' class="alignLabel"><span class="red">*</span>Title</label>
 
             <input type='text' name='title' class="alignInput" id='title' value="{{ old('title'), ''}}"
@@ -46,7 +41,7 @@
                 @foreach($genreCheckboxes as $id => $name)
                     <div class="genreBox">
                         <input type='checkbox' value='{{ $id }}' 
-                            name='genres[]' id="genre_{{ $id }}" {{ old('genres') == $id ? 'CHECKED' : '' }} >  
+                            name='genres[]' id="genre_{{ $id }}" {{ old('genres[$genres->id]') == $id ? 'CHECKED' : '' }} >  
                         <label for='genre_{{ $id }}'>{{ $name }}</label>
                     </div>
                 @endforeach  
@@ -54,8 +49,6 @@
 
             <input class='formBtn btn btn-success' type='submit' value='ADD'><br>
             <a href="/" class="goBack"><i class="fa fa-arrow-left" aria-hidden="true"></i> DONE / GO BACK TO LIST</a>
-            
-
         </form>
     </div>
 </div>

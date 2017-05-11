@@ -18,10 +18,12 @@
 </head>
 
 <body>
+	@if(Session::get('message') != null)
+        <div class='alert alert-warning'>{{ Session::get('message') }}</div>
+    @endif
 	<h1 id='banner'><i class="fa fa-film" aria-hidden="true"></i> MOVIE WATCHLIST <i class="fa fa-film" aria-hidden="true"></i></h1>
 
 	@yield('content')
-
 
 </body>
 

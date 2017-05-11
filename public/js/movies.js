@@ -1,26 +1,18 @@
 $(document).ready(function(){
 
-    // Hide the inputs for display boxes on document ready
-	$('#ratingOption').hide();
-
-
     // Displays rating inputs, if checked, after validation fails
 
-    if($('#watched_yes').is(':checked')) { $('#movieRating').show(); }
+    $('#movieRating').hide(); 
 
-    // Event handler to show or hide prioirity/rating inputs
+    if($('#watched').is(':checked')) { 
+        $('#movieRating').show(); 
+    }
 
-  	$("#showSelect").change(function() {
-    	if ($('option:selected').val() == 'watched') 
-            $('#ratingOption').show();
+    // Event handler to show or hide rating inputs
+
+     $("input[name='watched']").click(function() {
+        $('#movieRating').toggle();
     });
 
-	var today = new Date();
-	var year = today.getFullYear();
- 
-	document.getElementById("datefield").setAttribute("max", today);
-
-
 });
-
 

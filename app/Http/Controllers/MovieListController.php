@@ -15,14 +15,13 @@ class MovieListController extends Controller
         # Placing default settings for redirects
     
         $this->validate($request, [
-            'listType' => 'required|alpha',
-            'sortBy' => 'required|alpha',
+            'listType' => 'required',
+            'sortBy' => 'required',
             ]);
 
         $listType = $request->input('listType');
         $sortBy = $request->input('sortBy');
 
-        
         # Get genres for sortby dropdown that are actually used instead of all of them
         # Also $movies will be used if $listType = 'all' 
         
@@ -80,8 +79,6 @@ class MovieListController extends Controller
         ]); 
     }
 
-
-
     public function addMovie() {
 
         $genreCheckboxes = Genre::getGenresForCheckboxes();
@@ -100,7 +97,6 @@ class MovieListController extends Controller
             'runtime' => 'nullable|numeric|min:30|max:300',
             'imdb_link' => 'required|url',
             'genres' => 'required',
-            'watched' => 'required',
         ]);
 
         #Create New Movie
@@ -113,7 +109,7 @@ class MovieListController extends Controller
         $movie->release_year = $request->release_year;
         $movie->runtime = $request->runtime;
         $movie->imdb_link = $request->imdb_link;
-        $movie->watched = $request->watched;
+        $movie->watched = 0;
 
         #save movie
         $movie->save();
@@ -123,7 +119,7 @@ class MovieListController extends Controller
         $movie->genres()->sync($genres);
         $movie->save();
 
-        Session::flash('message', 'The movie '.$request->title.' was successfully added.');
+        Session::flash('message', $request->title.' was successfully added. Add another movie if you want.');
 
         # Get genres for checkboxes
 
@@ -136,16 +132,17 @@ class MovieListController extends Controller
         ]);
     }
 
-    public function editMovie($id) {
+    public function editMovieInfo($id) {
 
         $movie = Movie::with('genres')->find($id);
 
         if(is_null($movie)) {
-            Session::flash('message', "The movie that you're wanting to edit cannot be found.");
+            Session::flash('message', "The movie you're wanting to edit cannot be found.");
             return redirect('/');
         }
 
-        
+        #Get the genres that are associated with the movie
+
         $genresForMovie = [];
         foreach($movie->genres as $genre) {
             $genresForMovie[] = $genre->name;
@@ -154,14 +151,13 @@ class MovieListController extends Controller
         $genreCheckboxes = Genre::getGenresForCheckboxes();
 
         return view('watchlist.edit')->with([
-            'id' => $id,
             'movie' => $movie,
             'genreCheckboxes' => $genreCheckboxes,
             'genresForMovie' => $genresForMovie,
         ]);
     }   
 
-    public function saveMovie(Request $request) {
+    public function saveMovieInfo(Request $request) {
 
         #Validate inputs using laravel class
         $this->validate($request, [
@@ -170,21 +166,72 @@ class MovieListController extends Controller
             'runtime' => 'nullable|numeric|min:30|max:300',
             'imdb_link' => 'required|url',
             'genres' => 'required',
-            'watched' => 'required',
         ]);
 
-        # Get values from add form
+        #Find movie id from table
         $movie = Movie::find($request->id);
 
+        #Get values from form inputs
         $movie->title = $request->title;
         $movie->release_year = $request->release_year;
         $movie->runtime = $request->runtime;
         $movie->imdb_link = $request->imdb_link;
-        $movie->watched = $request->watched;
+        $movie->rating = $request->rating;
+        
         $genres = $request->genres;
 
         # Save Changes
         $movie->genres()->sync($genres);
+        $movie->save();
+
+        return redirect('/');
+    }
+
+    public function updateMovieStatus ($id){
+        $movie = Movie::with('genres')->find($id);
+
+        if(is_null($movie)) {
+            Session::flash('message', "The movie you're wanting to update cannot be found.");
+            return redirect('/');
+        }
+
+        return view('watchlist.update')->with([
+            'movie' => $movie,
+        ]);
+    }   
+
+    public function saveMovieStatus(Request $request){
+                #Validate inputs using laravel class
+        
+        #Find movie id from table
+        $movie = Movie::find($request->id);
+
+        #Get values from form inputs
+        $watched = $request->has('watched');
+
+        if($watched) {
+            $this->validate($request, [
+                'rating' => 'required',
+            ]);
+        }
+        elseif(!$watched) {
+            $this->validate($request, [
+                'rating' => 'nullable',
+            ]);
+        } 
+
+        $movie->rating = $request->rating;
+
+        if($watched) {
+            $movie->watched = '1';
+
+        }
+        elseif(!$watched) {
+            $movie->watched = '0';
+            $movie->rating = null;
+        }
+
+        # Save Changes
         $movie->save();
 
         return redirect('/');
@@ -206,14 +253,13 @@ class MovieListController extends Controller
         $movie = Movie::find($request->id);
 
         if(!$movie) {
-            Session::flash('message', 'Deletion failed. The movie was not found.');
+            Session::flash('message', 'Deletion failed.');
             return redirect('/');
         }
 
         $movie->genres()->detach();
 
         $movie->delete();
-
         
         Session::flash('message', $movie->title.' was deleted from your list.');
         
