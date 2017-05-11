@@ -21,8 +21,7 @@ Route::get('/list', 'MovieListController@list');
 Route::get('/add', 'MovieListController@addMovie');
 Route::post('/add', 'MovieListController@storeMovie');
 
-#
-
+#Edit movie info
 Route::get('/edit/{id}', 'MovieListController@editMovieInfo');
 Route::post('/edit/{id}', 'MovieListController@saveMovieInfo');
 
@@ -33,8 +32,6 @@ Route::post('/update/{id}', 'MovieListController@saveMovieStatus');
 # Delete Movie from List
 Route::get('/delete/{id}', 'MovieListController@deleteConfirm');
 Route::post('/delete', 'MovieListController@deleteMovie');
-
-
 
 
 if(App::environment('local')) {

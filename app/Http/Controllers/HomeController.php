@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     function __invoke(){
         
-        # Default home values (nothing will list)
+        # Default home values (the whole list)
 
         $listType = 'all';
         $sortBy = 'title';

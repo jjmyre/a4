@@ -20,6 +20,7 @@ class MoviesTableSeeder extends Seeder
             'runtime' => 121,
             'imdb_link' => 'http://www.imdb.com/title/tt0076759/?ref_=fn_al_tt_1',
             'watched' => 1,
+            'rating' => 4,
         ]);
 
         Movie::insert([
@@ -30,6 +31,7 @@ class MoviesTableSeeder extends Seeder
             'runtime' => 124,
             'imdb_link' => 'http://www.imdb.com/title/tt0073195/?ref_=fn_al_tt_1',
             'watched' => 1,
+            'rating' => 5,
         ]);
 
         Movie::insert([
@@ -40,6 +42,7 @@ class MoviesTableSeeder extends Seeder
             'runtime' => 121,
             'imdb_link' => 'http://www.imdb.com/title/tt2015381/?ref_=fn_al_tt_1',
             'watched' => 1,
+            'rating' => 4,
         ]);
 
          Movie::insert([
@@ -50,6 +53,7 @@ class MoviesTableSeeder extends Seeder
             'runtime' => 124,
             'imdb_link' => 'http://www.imdb.com/title/tt1446714/?ref_=fn_al_tt_1',
             'watched' => 1,
+            'rating' => 3,
         ]);
 
         Movie::insert([
@@ -60,6 +64,7 @@ class MoviesTableSeeder extends Seeder
             'runtime' => 122,
             'imdb_link' => 'http://www.imdb.com/title/tt0477348/?ref_=fn_al_tt_1',
             'watched' => 0,
+            'rating' => 0,
         ]);
 
         Movie::insert([
@@ -70,6 +75,7 @@ class MoviesTableSeeder extends Seeder
             'runtime' =>  117,
             'imdb_link' => 'http://www.imdb.com/title/tt0078748/?ref_=fn_al_tt_1',
             'watched' => 0,
+            'rating' => 0,
         ]);
 
         Movie::insert([
@@ -80,6 +86,7 @@ class MoviesTableSeeder extends Seeder
             'runtime' => 120,
             'imdb_link' => 'http://www.imdb.com/title/tt0364569/?ref_=fn_al_tt_2',
             'watched' => 0,
+            'rating' => 0,
         ]);
 
         Movie::insert([
@@ -90,6 +97,7 @@ class MoviesTableSeeder extends Seeder
             'runtime' => 156,
             'imdb_link' => 'http://www.imdb.com/title/tt1663202/?ref_=fn_al_tt_1',
             'watched' => 0,
+            'rating' => 0,
         ]);
 
         Movie::insert([
@@ -100,6 +108,7 @@ class MoviesTableSeeder extends Seeder
             'runtime' => 175,
             'imdb_link' => 'http://www.imdb.com/title/tt0068646/?ref_=fn_al_tt_1',
             'watched' => 0,
+            'rating' => 0,
         ]);
 
         Movie::insert([
@@ -110,6 +119,7 @@ class MoviesTableSeeder extends Seeder
             'runtime' => 180,
             'imdb_link' => 'http://www.imdb.com/title/tt0993846/?ref_=fn_al_tt_1',
             'watched' => 0,
+            'rating' => 0,
         ]);
     }
 }

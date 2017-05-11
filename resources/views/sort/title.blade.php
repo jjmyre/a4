@@ -14,9 +14,9 @@
 @else
     @foreach($movies as $movie)
         <section class='movieList'>
-            <h3>{{$movie->title}} &nbsp; 
-                <a href="{{ $movie->imdb_link }}" target="_blank"><i class="fa fa-imdb yellow" aria-hidden="true"></i></a>
-            </h3>
+            <h3>{{$movie->title}} &nbsp; <a href="{{ $movie->imdb_link }}" target="_blank">
+            <i class="fa fa-imdb yellow" aria-hidden="true"></i></a></h3>
+            
             <p>Genres:
                 @foreach($movie->genres as $genre) 
                     <span class="genre" href="">{{$genre->name.' '}}</span>
@@ -31,7 +31,6 @@
                 <p>Runtime: {{ $movie->runtime }} minutes</p>
             @endif
             
-            <br>
             <div class="actionDiv">
                 <a class='ved' href='/edit/{{$movie->id}}'>EDIT MOVIE INFO</a>
                 <a class='ved' href='/delete/{{$movie->id}}'>DELETE MOVIE</a>
@@ -40,6 +39,7 @@
             
             @if($movie->watched)
                 <p class="red"><i class="fa fa-check" aria-hidden="true"></i> WATCHED
+                
                 @if($movie->rating == 5)
                     <i class="fa fa-star star" aria-hidden="true"></i>&nbsp;
                     <i class="fa fa-star star" aria-hidden="true"></i>&nbsp;
@@ -61,7 +61,7 @@
                 @elseif($movie->rating == 1)
                     <i class="fa fa-star star" aria-hidden="true"></i></p>
                 @elseif(!$movie->rating)
-                    unrated</p>
+                    </p>
                 @endif
             @else
                 <p class="gray">UNWATCHED </p>

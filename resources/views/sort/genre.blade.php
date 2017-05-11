@@ -20,9 +20,8 @@
 @else
     @foreach($movies as $movie)
         <section class='movieList'>
-            <h3>{{$movie->title}} &nbsp; 
-                <a href="{{$movie->imdb_link}}" target="_blank"><i class="fa fa-imdb yellow" aria-hidden="true"></i></a>
-            </h3>
+            <h3>{{$movie->title}} &nbsp; <a href="{{$movie->imdb_link}}" target="_blank">
+                <i class="fa fa-imdb yellow" aria-hidden="true"></i></a></h3>
 
             @if($movie->release_year)
                 <p>Release Year: {{$movie->release_year}}</p>
@@ -32,11 +31,11 @@
                 <p>Runtime: {{$movie->runtime}} minutes</p>
             @endif
             
-            <br>
             <div class="actionDiv">
                 <a class='ved' href='/edit/{{$movie->id}}'>EDIT MOVIE INFO</a>
                 <a class='ved' href='/delete/{{$movie->id}}'>DELETE MOVIE</a>
             </div>
+            
             <hr>
 
             @if($movie->watched)
@@ -68,7 +67,7 @@
                 <p class="gray">UNWATCHED </p>
             @endif
             <div class="actionDiv">
-                <a class='ved' href='/update/{{$movie->id}}'>UPDATE STATUS / RATING</a>
+                <a class='ved' href='/update/{{$movie->id}}'>UPDATE/RATE</a>
             </div>
         </section>
     @endforeach
