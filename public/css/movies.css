@@ -62,11 +62,11 @@ label,
 }
 
 .ratingRadios {
-    margin-left: 35%;
+    margin-left: 32%;
 }
 
 .ratingRadios input {
-    margin: 0 .2em;
+    margin: 0 .2em 0 .75em;
 }
 
 #watchedBox {
@@ -74,23 +74,10 @@ label,
     margin-top: .5em;
 }
 
-#watchRadios label {
-    text-align: center;
-    display: inline-block;
-}
-
-#watchRadios input {
-    margin: 0 .25em;
-}
-
 .genreLabel {
     border-bottom: 2px dotted black;
     margin: 0 18% .5em 18%;
     font-weight: bold;
-}
-
-#watchRadios input {
-    display: inline-block;
 }
 
 #genreBoxContainer {

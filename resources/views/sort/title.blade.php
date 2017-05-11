@@ -19,7 +19,7 @@
             
             <p>Genres:
                 @foreach($movie->genres as $genre) 
-                    <span class="genre" href="">{{$genre->name.' '}}</span>
+                    <span class="genre">{{$genre->name.' '}}</span>
                 @endforeach
             </p>  
 

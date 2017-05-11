@@ -8,7 +8,7 @@
      <div class="container-fluid">
         <div id='content'>
             <div id="top_bar">
-                <h2>Delete {{ $movie->title }} </h2>
+                <h2>Delete: {{ $movie->title }} </h2>
             </div>
             @include('errors')
             
