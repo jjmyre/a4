@@ -28,17 +28,27 @@
                     <p><span class="red">*</span>Movie Rating</p>
                     <div class="ratingRadios">
                         <label><input type="radio" class="movieRating" name="rating" value="1" 
-                            {{ $movie->rating == '1' ? 'CHECKED' : '' }}>1 <i class="fa fa-star" aria-hidden="true"></i></label>
+                            {{ $movie->rating == '1' ? 'CHECKED' : '' }}>1 <i class="fa fa-star" aria-hidden="true"></i>
+                        </label>
+                        
                         <label><input type="radio" class="movieRating" name="rating" value="2" 
-                            {{ $movie->rating == '2' ? 'CHECKED' : '' }}>2 <i class="fa fa-star" aria-hidden="true"></i></label> 
+                            {{ $movie->rating == '2' ? 'CHECKED' : '' }}>2 <i class="fa fa-star" aria-hidden="true"></i>
+                        </label> 
+                        
                         <label><input type="radio" class="movieRating" name="rating" value="3" 
-                            {{ $movie->rating == '3' ? 'CHECKED' : '' }}>3 <i class="fa fa-star" aria-hidden="true"></i></label> 
+                            {{ $movie->rating == '3' ? 'CHECKED' : '' }}>3 <i class="fa fa-star" aria-hidden="true"></i>
+                        </label> 
+
                         <label><input type="radio" class="movieRating" name="rating" value="4" 
-                            {{ $movie->rating == '4' ? 'CHECKED' : '' }}>4 <i class="fa fa-star" aria-hidden="true"></i></label> 
+                            {{ $movie->rating == '4' ? 'CHECKED' : '' }}>4 <i class="fa fa-star" aria-hidden="true"></i>
+                        </label> 
+                        
                         <label><input type="radio" class="movieRating" name="rating" value="5" 
-                            {{ $movie->rating == '5' ? 'CHECKED' : '' }}>5 <i class="fa fa-star" aria-hidden="true"></i></label>      
+                            {{ $movie->rating == '5' ? 'CHECKED' : '' }}>5 <i class="fa fa-star" aria-hidden="true"></i>
+                        </label>      
                     </div>
-                </div><br>  
+                </div>
+                <br>  
 
                 <input class='formBtn btn btn-success' type='submit' value='UPDATE'>
                 <a href="/" class="goBack"><i class="fa fa-arrow-left" aria-hidden="true"></i> GO BACK TO LIST</a>

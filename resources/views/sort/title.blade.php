@@ -15,7 +15,8 @@
     @foreach($movies as $movie)
         <section class='movieList'>
             <h3>{{$movie->title}} &nbsp; <a href="{{ $movie->imdb_link }}" target="_blank">
-            <i class="fa fa-imdb yellow" aria-hidden="true"></i></a></h3>
+                <i class="fa fa-imdb yellow" aria-hidden="true"></i></a>
+            </h3>
             
             <p>Genres:
                 @foreach($movie->genres as $genre) 
@@ -38,7 +39,7 @@
             <hr>
             
             @if($movie->watched)
-                <p class="red"><i class="fa fa-check" aria-hidden="true"></i> WATCHED
+                <p class="red"><i class="fa fa-check" aria-hidden="true"></i> WATCHED 
                 
                 @if($movie->rating == 5)
                     <i class="fa fa-star star" aria-hidden="true"></i>&nbsp;
@@ -66,6 +67,7 @@
             @else
                 <p class="gray">UNWATCHED </p>
             @endif
+            
             <div class="actionDiv">
                 <a class='ved' href='/update/{{$movie->id}}'>UPDATE STATUS / RATING</a>
             </div>

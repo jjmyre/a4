@@ -21,7 +21,8 @@
     @foreach($movies as $movie)
         <section class='movieList'>
             <h3>{{$movie->title}} &nbsp; <a href="{{$movie->imdb_link}}" target="_blank">
-                <i class="fa fa-imdb yellow" aria-hidden="true"></i></a></h3>
+                <i class="fa fa-imdb yellow" aria-hidden="true"></i></a>
+            </h3>
 
             @if($movie->release_year)
                 <p>Release Year: {{$movie->release_year}}</p>
@@ -39,7 +40,8 @@
             <hr>
 
             @if($movie->watched)
-                <p class="red"><i class="fa fa-check" aria-hidden="true"></i> WATCHED
+                <p class="red"><i class="fa fa-check" aria-hidden="true"></i> WATCHED 
+                
                 @if($movie->rating == 5)
                     <i class="fa fa-star star" aria-hidden="true"></i>&nbsp;
                     <i class="fa fa-star star" aria-hidden="true"></i>&nbsp;
