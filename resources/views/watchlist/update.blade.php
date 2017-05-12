@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Edit Movie Information
+    Update Movie
 @endsection
 
 @section('content')
