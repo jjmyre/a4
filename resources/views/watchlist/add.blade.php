@@ -8,7 +8,7 @@
     <div class="container-fluid">
         <div id='content'>
             <div id="top_bar">
-                <h2>Add a New Unwatched Movie</h2>
+                <h2>Add a Movie You Want to See</h2>
             </div>
             @include('errors')
 
@@ -36,7 +36,7 @@
                 <div id="genreBoxContainer">     
                     @foreach($genreCheckboxes as $id => $name)
                         <div class="genreBox">
-                            <input type='checkbox' value='{{ $id }}' name='genres[]' id="genre_{{ $id }}" {{ old('genres') == $id ? 'CHECKED' : '' }} >  
+                            <input type='checkbox' value='{{ $id }}' name='genres[]' id="genre_{{ $id }}" >  
                             <label for='genre_{{ $id }}'>{{ $name }}</label>
                         </div>
                     @endforeach  
