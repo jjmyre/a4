@@ -13,9 +13,9 @@
             <p>All {{ $sortBy }} movies have been watched. Check your watched list.</p>
         </div>
     @elseif($listType == 'watched')
-        <section class='movieList'>
+        <div class='movieList'>
             <p>All {{ $sortBy }} movies are unwatched. Check your unwatched list.</p>
-        </section>
+        </div>
     @endif
 @else
     @foreach($movies as $movie)
