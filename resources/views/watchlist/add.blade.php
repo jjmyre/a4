@@ -25,7 +25,7 @@
                 <input type='text' class="alignInput" placeholder="YYYY" maxlength='4' name='release_year' id='release_year' value="{{old('release_year'), ''}}"><br><br>
 
                 <label for='runtime' class="alignLabel">Runtime</label>
-                <input type='text' name='runtime' class="alignInput"  id='runtime' placeholder="minutes" value="{{old('runtime'),''}}"><br><br>
+                <input type='text' name='runtime' class="alignInput"  id='runtime' placeholder="minutes" maxlength="3" value="{{old('runtime'),''}}"><br><br>
 
                 <label class="alignLabel"><span class="red">*</span>IMDB Link</label>
                 <input type='text' name='imdb_link' class="alignInput" id='imdb' placeholder="full url" value="{{old('imdb_link'),''}}" required><br><br>
