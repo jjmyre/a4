@@ -9,9 +9,9 @@
             
 @if(count($movies) == 0)
     @if($listType == 'unwatched')
-        <section class='movieList'>
+        <div class='movieList'>
             <p>All {{ $sortBy }} movies have been watched. Check your watched list.</p>
-        </section>
+        </div>
     @elseif($listType == 'watched')
         <section class='movieList'>
             <p>All {{ $sortBy }} movies are unwatched. Check your unwatched list.</p>
