@@ -180,7 +180,6 @@ class MovieListController extends Controller
         $movie->release_year = $request->release_year;
         $movie->runtime = $request->runtime;
         $movie->imdb_link = $request->imdb_link;
-        $movie->rating = $request->rating;
         
         # Get genres
         $genres = $request->genres;

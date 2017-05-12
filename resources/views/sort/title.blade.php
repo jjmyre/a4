@@ -69,7 +69,7 @@
             @endif
             
             <div class="actionDiv">
-                <a class='ved' href='/update/{{$movie->id}}'>UPDATE STATUS / RATING</a>
+                <a class='ved' href='/update/{{$movie->id}}'>UPDATE/RATE</a>
             </div>
 
         </section>
