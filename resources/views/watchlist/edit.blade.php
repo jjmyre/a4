@@ -30,7 +30,7 @@
                 <input type='text' class="alignInput" name='runtime' id='runtime' placeholder="minutes" maxlength="3" value="{{ old('runtime', $movie->runtime) }}"><br><br>
 
                 <label class="alignLabel"><span class="red">*</span>IMDB Link</label>
-                <input type='text' class="alignInput" name='imdb_link' id='imdb' placeholder="full url" value="{{ old('imdb_link', $movie->imdb_link) }}" required><br><br>
+                <input type='url' class="alignInput" name='imdb_link' id='imdb' placeholder="full url" value="{{ old('imdb_link', $movie->imdb_link) }}" required><br><br>
                 
                 <p class="genreLabel"><span class="red">*</span>Genres</p>
                 <p><em>Check all that apply (but at least one)</em></p>

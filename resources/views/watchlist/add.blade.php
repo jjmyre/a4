@@ -28,7 +28,7 @@
                 <input type='text' name='runtime' class="alignInput"  id='runtime' placeholder="minutes" maxlength="3" value="{{old('runtime'),''}}"><br><br>
 
                 <label class="alignLabel"><span class="red">*</span>IMDB Link</label>
-                <input type='text' name='imdb_link' class="alignInput" id='imdb' placeholder="full url" value="{{old('imdb_link'),''}}" required><br><br>
+                <input type='url' name='imdb_link' class="alignInput" id='imdb' placeholder="full url" value="{{old('imdb_link'),''}}" required><br><br>
                 
                 <p class="genreLabel"><span class="red">*</span>Genres</p> 
                 <p><em>Check all that apply (but at least one)</em></p>

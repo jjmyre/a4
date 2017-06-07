@@ -96,7 +96,7 @@ class MovieListController extends Controller
 
         #Validate inputs from add movie form
         $this->validate($request, [
-            'title' => "required|regex:/^[\pL\d\s\?\-\_\:]+$/u",  
+            'title' => "required|regex:/^[\pL\d\s\?\-\_\:\.]+$/u|max:100",  
             'release_year' => 'nullable|digits:4|integer|min:1900|max:'.(date('Y')),
             'runtime' => 'nullable|numeric|min:30|max:300',
             'imdb_link' => 'required|url',
@@ -165,7 +165,7 @@ class MovieListController extends Controller
 
         #Validate inputs from update form 
         $this->validate($request, [
-            'title' => "required|regex:/^[\pL\d\s\?\-\_\:]+$/u",  
+            'title' => "required|regex:/^[\pL\d\s\?\-\_\:\.]+$/u|max:100", 
             'release_year' => 'nullable|digits:4|integer|min:1900|max:'.(date('Y')),
             'runtime' => 'nullable|numeric|min:30|max:300',
             'imdb_link' => 'required|url',

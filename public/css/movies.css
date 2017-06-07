@@ -84,14 +84,16 @@ label,
     margin: 0 5% 2em 5%;
 }
 
-.genrebox {
-    width: 100%;
+.genreBox {
+    width: 33%;
+    float: left;
+    display: inline-block;
 }
 
 .genreBox input,
 .alignLabelW {
     width: 1em;
-    margin-left: 42%;
+    margin-left: 22%;
 }
 
 .genreBox label,

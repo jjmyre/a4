@@ -14,15 +14,15 @@ class GenreMovieTableSeeder extends Seeder
     public function run()
     {
         $movies =[
-            'Star Wars: Episode IV - A New Hope' => ['Adventure','Classic','Sci-fi'],
+            'Star Wars: Episode IV - A New Hope' => ['Adventure','Classic','Sci-Fi'],
             'The Revenant' => ['Adventure','Historical','Western'],
             'The Godfather' => ['Classic','Crime','Drama'],
             'Oldboy' => ['Action','Foreign','Thriller'],
             'The Wolf of Wall Street' => ['Biopic','Crime','Drama'],
-            'Alien' => ['Classic','Horror','Sci-fi'],
+            'Alien' => ['Classic','Horror','Sci-Fi'],
             'No Country for Old Men' => ['Action','Crime','Thriller'],
-            'Prometheus' => ['Horror','Sci-fi'],
-            'Guardians of the Galaxy' => ['Adventure','Comedy','Sci-fi'],
+            'Prometheus' => ['Horror','Sci-Fi'],
+            'Guardians of the Galaxy' => ['Adventure','Comedy','Sci-Fi'],
             'Jaws' => ['Classic','Horror','Monster']
         ];
 

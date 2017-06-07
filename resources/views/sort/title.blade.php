@@ -33,8 +33,8 @@
             @endif
             
             <div class="actionDiv">
-                <a class='ved' href='/edit/{{$movie->id}}'>EDIT MOVIE INFO</a>
-                <a class='ved' href='/delete/{{$movie->id}}'>DELETE MOVIE</a>
+                <a class='ved' href='/edit/{{$movie->id}}'><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a class='ved' href='/delete/{{$movie->id}}'><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></a>
             </div>
             <hr>
             
